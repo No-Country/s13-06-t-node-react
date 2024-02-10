@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: ticket-bus
+    restart: always
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_DB: ticket-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pg1234
+
+  pgadmin:
+    container_name: my_pgadmin
+    image: dpage/pgadmin4:latest
+    restart: always
+    ports:
+      - 5050:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@email.com
+      PGADMIN_DEFAULT_PASSWORD: admin1234
