@@ -11,17 +11,37 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Terminal.belongsTo(models.City, {
         as: 'city',
-        foreignKey: 'cityId'
+        foreignKey: 'cityId',
+        onDelete: 'CASCADE'
       });
     }
   }
   Terminal.init(
     {
-      lat: DataTypes.FLOAT,
-      lon: DataTypes.FLOAT,
-      cityId: DataTypes.INTEGER,
-      terminalName: DataTypes.STRING,
-      terminalCode: DataTypes.INTEGER
+      lat: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+      },
+      lon: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+      },
+      cityId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Cities',
+          key: 'id'
+        }
+      },
+      terminalName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      terminalCode: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      }
     },
     {
       sequelize,
