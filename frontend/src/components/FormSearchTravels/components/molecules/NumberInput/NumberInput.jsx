@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import IncrementButton from '../../atoms/IncrementButton';
-import DecrementButton from '../../atoms/DecrementButton';
-import InputFieldNumber from '../../atoms/InputFieldNumber';
+import IncrementButton from '../../atoms/IncrementButton.jsx';
+import DecrementButton from '../../atoms/DecrementButton.jsx';
+import InputFieldNumber from '../../atoms/InputFieldNumber.jsx';
 
 function NumberInput({ onQuantityChange, quantityPassengers }) {
   const [quantity, setQuantity] = useState(quantityPassengers);

@@ -1,8 +1,8 @@
-import placeholder from '../assets/TravelBenefitsSection/placeholder.webp';
-import digital_tickets from '../assets/TravelBenefitsSection/digital_tickets.svg';
-import notifications from '../assets/TravelBenefitsSection/notifications.svg';
-import service_quality from '../assets/TravelBenefitsSection/service_quality.svg';
-import regular_passenger from '../assets/TravelBenefitsSection/regular_passenger.svg';
+import placeholder from '../../assets/TravelBenefitsSection/placeholder.webp';
+import digital_tickets from '../../assets/TravelBenefitsSection/digital_tickets.svg';
+import notifications from '../../assets/TravelBenefitsSection/notifications.svg';
+import service_quality from '../../assets/TravelBenefitsSection/service_quality.svg';
+import regular_passenger from '../../assets/TravelBenefitsSection/regular_passenger.svg';
 
 const TravelBenefitsSection = () => {
   return (

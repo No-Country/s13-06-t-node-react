@@ -1,9 +1,9 @@
-import TravelStepsWrapper from '../components/TravelStepsWrapper.jsx';
-import BenefitPictures from '../components/BenefitPictures.jsx';
-import Hero from '../components/Hero.jsx';
+import TravelStepsWrapper from '../components/TravelSteps/TravelStepsWrapper.jsx';
+import BenefitPictures from '../components/Benefits/BenefitPictures.jsx';
+import Hero from '../components/Hero/Hero.jsx';
 import FormSearchTravels from '../components/FormSearchTravels/components/organisms/FormSearchTravels.jsx';
-import Profits from '../components/Profits.jsx';
-import TravelBenefitsSection from '../components/TravelBenefitsSection.jsx';
+import Profits from '../components/Profits/Profits.jsx';
+import TravelBenefitsSection from '../components/TravelBenefits/TravelBenefitsSection.jsx';
 
 function Home() {
   return (
