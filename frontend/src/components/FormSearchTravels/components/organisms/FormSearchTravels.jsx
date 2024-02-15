@@ -8,8 +8,8 @@ const FormSearchTravels = () => {
   const [formData, setFormData] = useState({
     origin: '',
     destination: '',
-    departure: '',
-    return: '',
+    departure_date: '',
+    return_date: '',
     passengers: 0
   });
 
@@ -32,8 +32,8 @@ const FormSearchTravels = () => {
     setFormData({
       origin: '',
       destination: '',
-      departure: '',
-      return: '',
+      departure_date: '',
+      return_date: '',
       passengers: 0
     });
   };
@@ -82,27 +82,27 @@ const FormSearchTravels = () => {
           <div className='mb-4 lg:ps-4 md:w-full box-border'>
             <label
               className='block text-gray-700 text-sm font-bold mb-2 uppercase'
-              htmlFor='departure'
+              htmlFor='departure_date'
             >
               Ida
             </label>
             <DateInput
-              id='departure'
+              id='departure_date'
               onChange={handleChange}
-              value={formData.departure}
+              value={formData.departure_date}
             />
           </div>
           <div className='mb-4 md:ps-4  md:w-full box-border whitespace-nowrap'>
             <label
               className='block text-gray-700 text-sm font-bold mb-2'
-              htmlFor='return'
+              htmlFor='return_date'
             >
               VUELTA (opcional)
             </label>
             <DateInput
-              id='return'
+              id='return_date'
               onChange={handleChange}
-              value={formData.return}
+              value={formData.return_date}
             />
           </div>
           <div className='mb-4 lg:ps-4 col-span-2 lg:col-span-1'>
