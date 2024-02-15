@@ -4,7 +4,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
-    <div className='bg-[#D3DCE7] cursor-default mt-8 md:mt-0 md:pt-4 text-black'>
+    <div className='bg-[#D3DCE7] cursor-default mt-8 md:mt-0 md:pt-10 text-black'>
       <div className='flex flex-col md:flex-row justify-between md:pb-8 pb-4 md:px-14'>
         <div className='border-b-2 md:hidden border-gray-200 pt-4 bg-white' />
         <div className='w-full md:w-1/4 flex md:flex-col md:items-start items-center justify-around md:bg-[#D3DCE7] bg-white py-8'>
@@ -14,27 +14,27 @@ const Footer = () => {
           </p>
           <div className='flex flex-row items-center md:mt-0 gap-6 '>
             <div className='flex md:mt-5 md:pt-6 text-white gap-4'>
-              <div className='group bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 shadow-md'>
+              <div className='group bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 shadow-md transition'>
                 <a
-                  className='text-black text-xl group-hover:text-gray-600'
+                  className='text-black text-xl group-hover:text-gray-600 transition'
                   href=''
                   target='_blank'
                 >
                   <FaFacebookSquare />
                 </a>
               </div>
-              <div className='group bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 shadow-md'>
+              <div className='group bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 shadow-md transition'>
                 <a
-                  className='text-black text-xl group-hover:text-gray-600'
+                  className='text-black text-xl group-hover:text-gray-600 transition'
                   href=''
                   target='_blank'
                 >
                   <FaXTwitter />
                 </a>
               </div>
-              <div className='group bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 shadow-md'>
+              <div className='group bg-white rounded-full p-2 cursor-pointer hover:bg-gray-100 active:bg-gray-200 shadow-md transition'>
                 <a
-                  className='text-black text-xl group-hover:text-gray-600'
+                  className='text-black text-xl group-hover:text-gray-600 transition'
                   href=''
                   target='_blank'
                 >
