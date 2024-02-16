@@ -1,9 +1,9 @@
-import DestinoLogo from '../assets/TravelSteps/destino.svg';
-import ServicioLogo from '../assets/TravelSteps/servicio.svg';
-import ArriboLogo from '../assets/TravelSteps/arribo.svg';
-import Linea from '../assets/TravelSteps/linea.svg';
-import TravelStepsCard from './TravelStepsCard';
-import TravelStepsHeader from './TravelStepsHeader';
+import DestinoLogo from '../../assets/TravelSteps/destino.svg';
+import ServicioLogo from '../../assets/TravelSteps/servicio.svg';
+import ArriboLogo from '../../assets/TravelSteps/arribo.svg';
+import Linea from '../../assets/TravelSteps/linea.svg';
+import TravelStepsCard from './TravelStepsCard.jsx';
+import TravelStepsHeader from './TravelStepsHeader.jsx';
 
 function TravelStepsWrapper() {
   return (

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import SelectField from '../atoms/SelectField';
-import DateInput from '../atoms/DateInput';
-import NumberInput from '../molecules/NumberInput/NumberInput';
-import SearchButton from '../atoms/SearchButton';
+import SelectField from '../atoms/SelectField.jsx';
+import DateInput from '../atoms/DateInput.jsx';
+import NumberInput from '../molecules/NumberInput/NumberInput.jsx';
+import SearchButton from '../atoms/SearchButton.jsx';
 
 const FormSearchTravels = () => {
   const [formData, setFormData] = useState({
