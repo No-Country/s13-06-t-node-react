@@ -13,7 +13,17 @@ module.exports = (sequelize, DataTypes) => {
         as: 'city',
         foreignKey: 'cityId',
         onDelete: 'CASCADE'
-      });
+      }),
+        Terminal.hasMany(models.Route, {
+          as: 'routes',
+          foreignKey: 'originId',
+          onDelete: 'CASCADE'
+        }),
+        Terminal.hasMany(models.Route, {
+          as: 'routes',
+          foreignKey: 'destinationId',
+          onDelete: 'CASCADE'
+        });
     }
   }
   Terminal.init(

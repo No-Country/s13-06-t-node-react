@@ -2,35 +2,39 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Terminals', {
+    await queryInterface.createTable('Routes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      lat: {
-        type: Sequelize.FLOAT,
-        allowNull: false
-      },
-      lon: {
-        type: Sequelize.FLOAT,
-        allowNull: false
-      },
-      cityId: {
+      originId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Cities',
+          model: 'Terminals',
           key: 'id'
         }
       },
-      terminalName: {
-        type: Sequelize.STRING,
+      destinationId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Terminals',
+          key: 'id'
+        }
+      },
+      duration: {
+        type: Sequelize.TIME,
         allowNull: false
       },
-      terminalCode: {
-        type: Sequelize.INTEGER,
+      distance: {
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false
+      },
+      price: {
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
       createdAt: {
@@ -46,6 +50,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Terminals');
+    await queryInterface.dropTable('Routes');
   }
 };

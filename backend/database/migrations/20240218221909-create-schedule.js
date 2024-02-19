@@ -2,36 +2,41 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Terminals', {
+    await queryInterface.createTable('Schedules', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      lat: {
-        type: Sequelize.FLOAT,
-        allowNull: false
-      },
-      lon: {
-        type: Sequelize.FLOAT,
-        allowNull: false
-      },
-      cityId: {
+      routeId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Cities',
+          model: 'Routes',
           key: 'id'
         }
       },
-      terminalName: {
-        type: Sequelize.STRING,
+      day: {
+        type: Sequelize.ENUM('SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'),
         allowNull: false
       },
-      terminalCode: {
+      departureTime: {
+        type: Sequelize.TIME,
+        allowNull: false
+      },
+      cost: {
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false
+      },
+      vehicleId: {
         type: Sequelize.INTEGER,
         allowNull: false
+        // AÑADIR CUANDO ESTE LISTO VEHICLE
+        // references: {
+        //   model: 'Vehicle',
+        //   key: 'id'
+        // }
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +51,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Terminals');
+    await queryInterface.dropTable('Schedules');
   }
 };
