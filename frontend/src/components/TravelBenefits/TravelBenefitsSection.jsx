@@ -6,22 +6,22 @@ import regular_passenger from '../../assets/TravelBenefitsSection/regular_passen
 
 const TravelBenefitsSection = () => {
   return (
-    <div className='flex flex-col items-center h-auto w-full gap-8 md:p-10 text-[#1A202C] cursor-default'>
-      <h2 className='md:text-5xl text-3xl px-4 font-medium text-[#486284] text-center '>
+    <div className='flex flex-col items-center h-auto w-full gap-8 lg:p-10 text-[#1A202C] cursor-default'>
+      <h2 className='lg:text-5xl text-3xl px-4 font-medium text-[#486284] text-center '>
         ¿Por qué viajar con nosotros?
       </h2>
-      <p className='lg:w-4/12 w-full px-4 text-lg font-normal text-center'>
+      <p className='lg:w-5/12 w-full px-4 text-lg font-normal text-center'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore e
       </p>
 
-      <div className='md:flex px-3 h-4/6 w-full justify-evenly items-center'>
+      <div className='lg:flex px-3 h-4/6 w-full justify-evenly items-center'>
         <img
-          className='md:h-full h-auto md:max-w-xl max-w-screen rounded-lg'
+          className='lg:h-full h-auto lg:max-w-xl max-w-screen rounded-lg'
           src={placeholder}
           alt='placeholder'
         />
-        <div className='md:w-2/6 gap-6 pt-4 md:pt-0 px-1 flex flex-col justify-between '>
+        <div className='lg:w-2/6 gap-6 pt-4 lg:pt-0 px-1 flex flex-col justify-between '>
           <div className='flex h-3/12 gap-3'>
             <div className='flex justify-center items-center'>
               <div className='w-12 flex justify-center'>
@@ -34,7 +34,7 @@ const TravelBenefitsSection = () => {
               </div>
             </div>
             <div className='flex flex-col justify-between'>
-              <p className='font-semibold md:text-[22px] text-base md:w-max'>
+              <p className='font-semibold lg:text-[22px] text-base'>
                 Tickets digitales
               </p>
               <p>
@@ -54,8 +54,8 @@ const TravelBenefitsSection = () => {
                 />
               </div>
             </div>
-            <div className='md:overflow-visible overflow-auto'>
-              <p className='font-semibold md:text-xl text-base md:w-max'>
+            <div>
+              <p className='font-semibold lg:text-xl text-base'>
                 Alertas y notificaciones en tiempo real
               </p>
               <p>
@@ -76,8 +76,8 @@ const TravelBenefitsSection = () => {
               </div>
             </div>
             <div>
-              <div className=' md:w-max'>
-                <p className='font-semibold md:text-[22px] text-base md:w-max '>
+              <div>
+                <p className='font-semibold lg:text-[22px] text-base '>
                   <span className='text-[#605BFF]'>Calidad</span> del servicio
                 </p>
               </div>
@@ -100,7 +100,7 @@ const TravelBenefitsSection = () => {
               </div>
             </div>
             <div>
-              <p className='font-semibold md:text-[22px] text-base md:w-max'>
+              <p className='font-semibold lg:text-[22px] text-base'>
                 Club de pasajeros frecuentes
               </p>
               <p>
