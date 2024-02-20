@@ -10,11 +10,12 @@ export default function ChooseTravel() {
     <div className='flex items-center justify-evenly lg:flex-row flex-col md:mx-0 mx-2 mt-6'>
       <div className='lg:w-2/5 w-full'>
         <div className='flex my-7'>
-          <img src={bus} alt='' />
+          <img src={bus} alt='' className='mr-5' />
           <div>
-            <p>Elige tu viaje de ida</p>
-
-            <p className='flex gap-4 justify-center'>
+            <h2 className='font-bold text-xl tracking-tight'>
+              Elige tu viaje de ida
+            </h2>
+            <p className='flex gap-4 justify-center text-[#486284] font-medium'>
               Buenos Aires <img src={arrow} alt='' /> Mar del Plata
             </p>
           </div>
