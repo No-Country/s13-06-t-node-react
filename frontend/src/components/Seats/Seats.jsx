@@ -74,7 +74,7 @@ const Seats = (props) => {
   };
 
   return (
-    <div className='flex flex-col items-center w-full max-w-[350px] justify-center m-2'>
+    <div className='flex flex-col items-center w-full max-w-[350px] justify-start m-2'>
       <p className='text-3xl font-semibold'>Elige tu asiento</p>
       <div className='flex justify-center gap-8 w-full m-4'>
         <button

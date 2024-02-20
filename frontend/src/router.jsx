@@ -3,6 +3,8 @@ import Home from './pages/Home.jsx';
 import MainLayout from './layouts/MainLayout.jsx';
 import StepsLayout from './layouts/StepsLayout.jsx';
 import ChooseTravel from './components/ChooseTravel/ChooseTravel.jsx';
+import Travels from './pages/TravelSelection.jsx';
+import SeatSelection from './pages/SeatSelection.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -21,11 +23,11 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <ChooseTravel />
+        element: <Travels />
       },
       {
         path: 'seats',
-        element: <ChooseTravel />
+        element: <SeatSelection />
       },
       {
         path: 'passengers',

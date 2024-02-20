@@ -16,8 +16,8 @@ const schedule = {
 
 function Itinerary() {
   return (
-    <div className='text-center max-w-80'>
-      <section className='bg-[#DEE5ED] max-w-80 min-h-96 rounded-[30px] px-4 pt-5 pb-8 mx-auto'>
+    <div className='text-center mt-24'>
+      <section className='bg-[#DEE5ED] h-[401px] max-w-80 rounded-[10px] px-4 pt-5 pb-8 mx-auto'>
         <h1 className='font-bold text-xl tracking-tight mb-9 text-[#1A202C]'>
           {schedule.typeOfTravel}
         </h1>
@@ -27,7 +27,7 @@ function Itinerary() {
         </div>
         <div className='flex justify-between font-medium text-xl tracking-tight items-center text-[#1A202C] mb-3'>
           <p>{schedule.departingPlace}</p>
-          <img src={Arrow} className='size-5' alt='Flecha'></img>
+          <img src={Arrow} className='size-5 mx-2' alt='Flecha'></img>
           <p>{schedule.arrivalPlace}</p>
         </div>
         <ItinerarySchedule
