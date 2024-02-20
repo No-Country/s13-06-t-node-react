@@ -10,37 +10,36 @@ const schedule = {
   arrivalPlace: 'Mar del Plata',
   arrivalDay: 'Jue 14 Mar',
   arrivalHour: '12:00',
-  price: '00.000'
+  price: '00.000',
+  typeOfTravel: 'Viaje de ida'
 };
 
 function Itinerary() {
   return (
-    // TODO: preguntar a UX-UI si esta bien hacer esta concesion con los max-w, max-w-[304px] queda demasiado cerca, max-w-80 lo deja respirar un poco mas
     <div className='text-center max-w-80'>
-      <h1 className='font-medium text-xl tracking-tight mb-9 text-[#1A202C]'>
-        Viaje de ida
-      </h1>
-      <section>
-        <div className='bg-[#DEE5ED] max-w-80 min-h-96 rounded-[30px] px-4 pt-7 pb-8 mx-auto'>
-          <img src={Bus} className='mx-auto mb-4' alt='Icono de Autobus' />
-          <div className='flex justify-between font-medium text-[#486284] text-[15px] opacity-90 tracking-tight mb-[10px]'>
-            <h2>Salida</h2> <h2>Llegada</h2>
-          </div>
-          <div className='flex justify-between font-medium text-xl tracking-tight items-center text-[#1A202C] mb-3'>
-            <p>{schedule.departingPlace}</p>
-            <img src={Arrow} className='size-5' alt='Flecha'></img>
-            <p>{schedule.arrivalPlace}</p>
-          </div>
-          <ItinerarySchedule
-            departingDay={schedule.departingDay}
-            arrivalDay={schedule.arrivalDay}
-            arrivalHour={schedule.arrivalHour}
-            departingHour={schedule.departingHour}
-          />
-          <h1 className='font-bold text-xl text-[#1A202C] text-left'>
-            ${schedule.price} -
-          </h1>
+      <section className='bg-[#DEE5ED] max-w-80 min-h-96 rounded-[30px] px-4 pt-5 pb-8 mx-auto'>
+        <h1 className='font-bold text-xl tracking-tight mb-9 text-[#1A202C]'>
+          {schedule.typeOfTravel}
+        </h1>
+
+        <div className='flex justify-between font-medium text-[#486284] text-[15px] opacity-90 tracking-tight mb-[10px]'>
+          <h2>Salida</h2> <h2>Llegada</h2>
         </div>
+        <div className='flex justify-between font-medium text-xl tracking-tight items-center text-[#1A202C] mb-3'>
+          <p>{schedule.departingPlace}</p>
+          <img src={Arrow} className='size-5' alt='Flecha'></img>
+          <p>{schedule.arrivalPlace}</p>
+        </div>
+        <ItinerarySchedule
+          departingDay={schedule.departingDay}
+          arrivalDay={schedule.arrivalDay}
+          arrivalHour={schedule.arrivalHour}
+          departingHour={schedule.departingHour}
+        />
+        <img src={Bus} className='mx-auto mt-7 mb-14' alt='Icono de Autobus' />
+        <h1 className='font-bold text-xl text-[#1A202C] text-left'>
+          ${schedule.price} -
+        </h1>
       </section>
     </div>
   );
