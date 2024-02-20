@@ -1,7 +1,6 @@
 import bus from '../../assets/bus-icon.svg';
 import arrow from '../../assets/arrow.svg';
 import Schedule from './Schedule';
-import arrowBack from '../../assets/arrow-back.svg';
 import BackButton from '../BackButton';
 import ContinueButton from '../ContinueButton';
 
@@ -37,9 +36,6 @@ export default function ChooseTravel() {
           />
         </div>
         <div className='flex justify-between mt-5'>
-          <div className='md:hidden flex bg-[#D97706] rounded-full items-center pl-3 relative w-11 h-11 '>
-            <img src={arrowBack} alt='' />
-          </div>
           <BackButton />
           <ContinueButton />
         </div>

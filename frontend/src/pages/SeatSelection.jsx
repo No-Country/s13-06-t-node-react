@@ -11,7 +11,7 @@ function SeatSelection() {
         <Itinerary />
         <BackButton />
       </div>
-      <Seats />
+      <Seats tickets={1} />
       <div className='flex flex-col justify-between items-center space-y-20'>
         <PricesCard />
         <ContinueButton />
