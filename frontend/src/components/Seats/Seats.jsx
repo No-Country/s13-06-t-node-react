@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import driver from '../../assets/Seats/driver.svg';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Seats = (props) => {
+  const dispatch = useDispatch();
+  const seatSelected = useSelector((state) => state.seat.seatSelected); // Read from Redux store
+
   const [sectionA, setSectionA] = useState([]);
   const [sectionB, setSectionB] = useState([]);
   const [sectionC, setSectionC] = useState([]);
@@ -12,29 +16,35 @@ const Seats = (props) => {
   const [showToast, setShowToast] = useState(false);
   const { tickets = 1 } = props;
 
-  const initializeSection = (setSection, seatAmount) => {
-    const newArray = Array.from({ length: seatAmount }, (_, index) => ({
-      id: index + 1,
-      status: 'free'
-      //   status: Math.random() < 0.7 ? 'free' : 'occupied' // ESTO ES PARA TESTEAR FUNCIONALIDAD. DESPUES VENDRA DESDE EL BACK
-    }));
-
-    setSection(newArray);
-  };
-
   useEffect(() => {
-    initializeSection(setSectionA, 16);
-    initializeSection(setSectionB, 4);
-    initializeSection(setSectionC, 8);
-    initializeSection(setSectionD, 8);
-    initializeSection(setSectionE, 4);
-  }, []);
+    const initializeSection = (setSection, seatAmount, sectionLetter) => {
+      const newArray = Array.from({ length: seatAmount }, (_, index) => {
+        // Sync UI with Redux Store seatSelected
+        // Check if the seat is in the seatSelected array
+        const isSelected = seatSelected.some(
+          (seat) => seat.id === index + 1 && seat.section === sectionLetter
+        );
+        return {
+          id: index + 1,
+          status: isSelected ? 'selected' : 'free'
+          //   status: Math.random() < 0.7 ? 'free' : 'occupied' // ESTO ES PARA TESTEAR FUNCIONALIDAD. DESPUES VENDRA DESDE EL BACK
+        };
+      });
+      setSection(newArray);
+    };
+
+    initializeSection(setSectionA, 16, 'A');
+    initializeSection(setSectionB, 4, 'B');
+    initializeSection(setSectionC, 8, 'C');
+    initializeSection(setSectionD, 8, 'D');
+    initializeSection(setSectionE, 4, 'E');
+  }, [seatSelected]);
 
   const toggleFloor = (floor) => {
     setFloor(floor === 1 ? 'first' : 'second');
   };
 
-  const toggleSeat = (id, section, setSection) => {
+  const toggleSeat = (id, section, setSection, sectionLetter) => {
     const currentSeat = section.find((seat) => seat.id === id);
 
     if (currentSeat.status === 'occupied') {
@@ -61,15 +71,32 @@ const Seats = (props) => {
     }
 
     setSection((prevState) => {
-      return prevState.map((seat) => {
+      const newState = prevState.map((seat) => {
         if (seat.id === id) {
+          const newStatus = seat.status === 'free' ? 'selected' : 'free';
           return {
             ...seat,
-            status: seat.status === 'free' ? 'selected' : 'free'
+            status: newStatus
           };
         }
         return seat;
       });
+
+      // Dispatch action based on the new state
+      const newSeat = newState.find((seat) => seat.id === id);
+      if (newSeat.status === 'selected') {
+        dispatch({
+          type: 'ADD_SEAT_SELECTED',
+          payload: { id: newSeat.id, section: sectionLetter }
+        });
+      } else if (newSeat.status === 'free') {
+        dispatch({
+          type: 'REMOVE_SEAT_SELECTED',
+          payload: { id: newSeat.id, section: sectionLetter }
+        });
+      }
+
+      return newState;
     });
   };
 
@@ -111,7 +138,9 @@ const Seats = (props) => {
                         ? 'bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-200 cursor-pointer'
                         : 'bg-green-300 hover:bg-green-200 active:bg-green-100 cursor-pointer'
                   }`}
-                  onClick={() => toggleSeat(seat.id, sectionD, setSectionD)}
+                  onClick={() =>
+                    toggleSeat(seat.id, sectionD, setSectionD, 'D')
+                  }
                 />
               ))}
             </div>
@@ -126,7 +155,9 @@ const Seats = (props) => {
                         ? 'bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-200 cursor-pointer'
                         : 'bg-green-300 hover:bg-green-200 active:bg-green-100 cursor-pointer'
                   }`}
-                  onClick={() => toggleSeat(seat.id, sectionE, setSectionE)}
+                  onClick={() =>
+                    toggleSeat(seat.id, sectionE, setSectionE, 'E')
+                  }
                 />
               ))}
             </div>
@@ -147,7 +178,7 @@ const Seats = (props) => {
                       ? 'bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-200 cursor-pointer'
                       : 'bg-green-300 hover:bg-green-200 active:bg-green-100 cursor-pointer'
                 }`}
-                onClick={() => toggleSeat(seat.id, sectionA, setSectionA)}
+                onClick={() => toggleSeat(seat.id, sectionA, setSectionA, 'A')}
               />
             ))}
           </div>
@@ -163,7 +194,9 @@ const Seats = (props) => {
                         ? 'bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-200 cursor-pointer'
                         : 'bg-green-300 hover:bg-green-200 active:bg-green-100 cursor-pointer'
                   }`}
-                  onClick={() => toggleSeat(seat.id, sectionB, setSectionB)}
+                  onClick={() =>
+                    toggleSeat(seat.id, sectionB, setSectionB, 'B')
+                  }
                 />
               ))}
             </div>
@@ -178,7 +211,9 @@ const Seats = (props) => {
                         ? 'bg-yellow-400 hover:bg-yellow-300 active:bg-yellow-200 cursor-pointer'
                         : 'bg-green-300 hover:bg-green-200 active:bg-green-100 cursor-pointer'
                   }`}
-                  onClick={() => toggleSeat(seat.id, sectionC, setSectionC)}
+                  onClick={() =>
+                    toggleSeat(seat.id, sectionC, setSectionC, 'C')
+                  }
                 />
               ))}
             </div>

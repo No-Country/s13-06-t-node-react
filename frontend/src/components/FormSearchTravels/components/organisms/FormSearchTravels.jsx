@@ -3,8 +3,13 @@ import SelectField from '../atoms/SelectField.jsx';
 import DateInput from '../atoms/DateInput.jsx';
 import NumberInput from '../molecules/NumberInput/NumberInput.jsx';
 import SearchButton from '../atoms/SearchButton.jsx';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const FormSearchTravels = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     origin: '',
     destination: '',
@@ -36,6 +41,8 @@ const FormSearchTravels = () => {
       return_date: '',
       passengers: 1
     });
+    dispatch({ type: 'SET_SEAT_QUANTITY', payload: formData.passengers });
+    navigate('/ticket'); // temporal hasta tener el endpoint al cual hacer fetch
   };
 
   const cityOptions = [
