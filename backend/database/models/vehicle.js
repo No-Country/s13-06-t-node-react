@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
+      Vehicle.hasMany(models.Amenity, {
+        foreignKey: 'idVehicle',
+        as: 'schedules',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      });
     }
   }
   Vehicle.init(

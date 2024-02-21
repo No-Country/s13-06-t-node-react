@@ -86,6 +86,86 @@ module.exports = {
           food: true,
           wifi: true,
           airConditioner: true
+        },
+        {
+          idVehicle: 11,
+          usb: true,
+          tv: true,
+          food: false,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 12,
+          usb: true,
+          tv: true,
+          food: true,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 13,
+          usb: true,
+          tv: true,
+          food: true,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 14,
+          usb: true,
+          tv: true,
+          food: false,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 15,
+          usb: true,
+          tv: true,
+          food: true,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 16,
+          usb: true,
+          tv: true,
+          food: false,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 17,
+          usb: true,
+          tv: true,
+          food: true,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 18,
+          usb: true,
+          tv: true,
+          food: false,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 19,
+          usb: true,
+          tv: true,
+          food: true,
+          wifi: true,
+          airConditioner: true
+        },
+        {
+          idVehicle: 20,
+          usb: true,
+          tv: true,
+          food: true,
+          wifi: true,
+          airConditioner: true
         }
       ],
       {}
