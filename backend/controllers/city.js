@@ -96,6 +96,12 @@ const updateCity = catchAsync(async (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
 
+    const cityExists = await checkCityExistsByName(name);
+
+    if (cityExists) {
+      throw new ErrorObject(`Ya existe una ciudad con el nombre: ${name}`, 409);
+    }
+
     const updatedCity = await updateCityService(id, name);
 
     if (!updatedCity) {
