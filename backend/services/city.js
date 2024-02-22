@@ -1,59 +1,38 @@
 const { City } = require('../database/models');
 
-const getCityById = async (cityId) => {
-  const city = await City.findByPk(cityId);
+const getCityById = async (cityId) => await City.findByPk(cityId);
 
-  if (!city) {
-    return null;
-  }
+const getCities = async () => await City.findAll();
 
-  return city;
-};
-
-const getCities = async () => {
-  const cities = await City.findAll();
-
-  return cities;
-};
-
-const createCity = async (name) => {
-  const city = await City.create({
+const createCity = async (name) =>
+  await City.create({
     name
   });
 
-  return city;
-};
+const updateCity = async (cityId, name) =>
+  await City.update(
+    {
+      name
+    },
+    {
+      where: { id: cityId }
+    }
+  );
 
-const updateCity = async (cityId, name) => {
-  const city = await City.findByPk(cityId);
+const deleteCity = async (cityId) =>
+  // TODO Posible error for foreign keys
+  await City.destroy({
+    where: { id: cityId }
+  });
 
-  if (!city) {
-    return null;
-  }
-
-  city.name = name;
-
-  await city.save();
-
-  return city;
-};
-
-const deleteCity = async (cityId) => {
-  const city = await City.findByPk(cityId);
-
-  if (!city) {
-    return null;
-  }
-
-  await city.destroy();
-
-  return city;
-};
+const checkCityExistsByName = async (name) =>
+  Boolean(await City.findOne({ where: { name } }));
 
 module.exports = {
   getCityById,
   getCities,
   createCity,
   updateCity,
-  deleteCity
+  deleteCity,
+  checkCityExistsByName
 };
