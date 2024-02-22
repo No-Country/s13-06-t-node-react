@@ -6,7 +6,7 @@ function InputFieldNumber({ id, value }) {
       id={id}
       type='text'
       value={value}
-      className='bg-gray-50 border h-11 text-center text-gray-700 text-sm block w-full py-2.5 focus:outline-none'
+      className='bg-gray-50 border h-11 text-center text-gray-700 text-sm block w-full py-2 focus:outline-none'
       placeholder='1'
       required
       readOnly
