@@ -61,7 +61,7 @@ const router = express.Router();
  *             schema:
  *               $ref: "#/components/schemas/ApiResponse"
  *             example:
- *              status: success
+ *              status: error
  *              code: 500
  *              message: No se pudo autenticar el usuario.
  */
@@ -120,7 +120,7 @@ router.post('/login', login);
  *             schema:
  *               $ref: "#/components/schemas/ApiResponse"
  *             example:
- *              status: success
+ *              status: error
  *              code: 500
  *              message: No se pudo registrar el usuario.
  */
