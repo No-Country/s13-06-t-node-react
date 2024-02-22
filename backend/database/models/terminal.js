@@ -15,12 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE'
       }),
         Terminal.hasMany(models.Route, {
-          as: 'routes',
+          as: 'originId',
           foreignKey: 'originId',
           onDelete: 'CASCADE'
         }),
         Terminal.hasMany(models.Route, {
-          as: 'routes',
+          as: 'destinationId',
           foreignKey: 'destinationId',
           onDelete: 'CASCADE'
         });

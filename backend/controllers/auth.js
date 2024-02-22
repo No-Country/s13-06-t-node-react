@@ -18,7 +18,7 @@ module.exports = {
 
       // Si el usuario ya existe, lanzamos un error
       if (existingUser) {
-        throw new ErrorObject('El usuario ya existe!', 409);
+        throw new ErrorObject('El usuario ya existe.', 409);
       }
 
       // Tratamos de crear el usuario
@@ -26,7 +26,7 @@ module.exports = {
 
       // Si no se pudo crear el usuario, lanzamos un error
       if (!newUser) {
-        throw new ErrorObject('No se pudo crear el usuario!', 500);
+        throw new ErrorObject('No se pudo crear el usuario.', 500);
       }
 
       // Eliminamos la contraseña del usuario
@@ -36,7 +36,7 @@ module.exports = {
       endpointResponse({
         res,
         message: 'Usuario creado con éxito!',
-        body: newUser
+        body: { user: newUser }
       });
     } catch (error) {
       // Si hubo un error, lo capturamos y lo lanzamos
@@ -44,7 +44,7 @@ module.exports = {
         res,
         status: error.status || 'error',
         code: error.statusCode || 500,
-        message: error.message || 'No se pudo registrar el usuario!'
+        message: error.message || 'No se pudo registrar el usuario.'
       });
     }
   }),
@@ -59,7 +59,7 @@ module.exports = {
 
       // Si no se pudo obtener el usuario, lanzamos un error
       if (!user) {
-        throw new ErrorObject('No se pudo obtener el usuario!', 404);
+        throw new ErrorObject('Usuario o contraseña incorrecta.', 401);
       }
 
       // Comparamos la contraseña del usuario con la contraseña ingresada
@@ -67,7 +67,7 @@ module.exports = {
 
       // Si las contraseñas no coinciden, lanzamos un error
       if (!isMatch) {
-        throw new ErrorObject('Usuario o contraseña incorrecta!', 401);
+        throw new ErrorObject('Usuario o contraseña incorrecta.', 401);
       }
 
       const payload = {
@@ -91,7 +91,7 @@ module.exports = {
         res,
         status: error.status || 'error',
         code: error.statusCode || 500,
-        message: error.message || 'No se pudo autenticar el usuario!'
+        message: error.message || 'No se pudo autenticar el usuario.'
       });
     }
   })
