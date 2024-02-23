@@ -15,6 +15,7 @@ dotenv.config();
 var indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
+const routesRouter = require('./routes/route');
 
 var app = express();
 
@@ -75,6 +76,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/routes', routesRouter);
 
 // Swagger specification
 const specs = swaggerJsDoc(options);
