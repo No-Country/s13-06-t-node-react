@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "deploy": "netlify deploy --prod --dir=dist --message='deployed to prod'",
-    "deploy:vercel": "vercel deploy --prod"
+    "deploy:vercel": "vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
