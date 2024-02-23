@@ -4,6 +4,7 @@ import MainLayout from './layouts/MainLayout.jsx';
 import StepsLayout from './layouts/StepsLayout.jsx';
 import SeatSelection from './pages/SeatSelection.jsx';
 import TravelSelection from './pages/TravelSelection.jsx';
+import TripReservation from './pages/ticket/TripReservation.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'passengers',
-        element: <p>Passengers</p>
+        element: <TripReservation />
       },
       {
         path: 'summary',

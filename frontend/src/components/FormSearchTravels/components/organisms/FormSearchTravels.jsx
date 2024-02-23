@@ -1,29 +1,52 @@
-import { useState } from 'react';
-import SelectField from '../atoms/SelectField.jsx';
-import DateInput from '../atoms/DateInput.jsx';
-import NumberInput from '../molecules/NumberInput/NumberInput.jsx';
-import SearchButton from '../atoms/SearchButton.jsx';
+import { useEffect, useState } from 'react';
+import DateInput from '../atoms/DateInput';
+import NumberInput from '../molecules/NumberInput/NumberInput';
+import SearchButton from '../atoms/SearchButton';
+import Autocomplete from '../organisms/Autocomplete';
+import { getCurrentDate } from '../../../../utils/dateUtils';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const FormSearchTravels = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     origin: '',
     destination: '',
-    departure_date: '',
-    return_date: '',
+    departure_date: getCurrentDate(),
+    return_date: getCurrentDate(),
     passengers: 1
   });
 
+  // Estado adicional para la fecha de vuelta
+  const [returnDate, setReturnDate] = useState(formData.return_date);
+
+  // Validación del Formulario
+  const [formValid, setFormValid] = useState(false);
+
+  // Reset del Autocomplete
+  const [resetInput, setResetInput] = useState(false);
+
   const handleChange = (e) => {
+    const { id, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value
+      [id]: value
     });
+
+    if (id === 'return_date') {
+      setReturnDate(value);
+    }
+
+    if (id === 'destination' || id === 'origin') {
+      setFormValid(formData.destination !== '' && formData.origin !== '');
+    }
   };
+
+  useEffect(() => {
+    if (formData.departure_date) {
+      setReturnDate(formData.departure_date);
+    }
+  }, [formData.departure_date]);
 
   const handlePassengersChange = (newQuantity) => {
     setFormData({
@@ -37,39 +60,41 @@ const FormSearchTravels = () => {
     setFormData({
       origin: '',
       destination: '',
-      departure_date: '',
-      return_date: '',
+      departure_date: getCurrentDate(),
+      return_date: getCurrentDate(),
       passengers: 1
     });
+    setReturnDate(getCurrentDate());
+    setResetInput(true);
+    setFormValid(false);
     dispatch({ type: 'SET_SEAT_QUANTITY', payload: formData.passengers });
-    navigate('/ticket'); // temporal hasta tener el endpoint al cual hacer fetch
   };
 
   const cityOptions = [
-    { value: '', label: 'Ciudad' },
-    { value: 'buenos-aires', label: 'Buenos Aires' },
-    { value: 'cordoba', label: 'Córdoba' },
-    { value: 'mendoza', label: 'Mendoza' },
-    { value: 'bariloche', label: 'Bariloche' },
-    { value: 'salta', label: 'Salta' }
+    'Buenos Aires',
+    'Córdoba',
+    'Mendoza',
+    'Bariloche',
+    'Salta'
   ];
 
   return (
     <div className='flex items-center justify-center px-6 md:px-0 lg:-mt-28 sm:-mt-10 -mt-8 py-6 '>
       <form className='bg-gray-200 rounded px-6 py-6 lg:flex md:w-auto w-full shadow-2xl shadow-slate-500/40'>
         <div className='grid lg:grid-cols-5 grid-cols-2 lg:divide-x-2 divide-gray-400 gap-4'>
-          <div className='mb-4 col-span-2 lg:col-span-1'>
+          <div className='mb-4 lg:ps-4 col-span-2 lg:col-span-1'>
             <label
               className='block text-gray-700 text-sm font-bold mb-2 uppercase'
               htmlFor='origin'
             >
               Origen
             </label>
-            <SelectField
+            <Autocomplete
               id='origin'
-              options={cityOptions}
               value={formData.origin}
               onChange={handleChange}
+              items={cityOptions}
+              resetInput={resetInput}
             />
           </div>
           <div className='mb-4 lg:ps-4 col-span-2 lg:col-span-1'>
@@ -79,17 +104,18 @@ const FormSearchTravels = () => {
             >
               Destino
             </label>
-            <SelectField
+            <Autocomplete
               id='destination'
-              options={cityOptions}
               value={formData.destination}
               onChange={handleChange}
+              items={cityOptions}
+              resetInput={resetInput}
             />
           </div>
           <div className='mb-4 lg:ps-4 md:w-full box-border'>
             <label
               className='block text-gray-700 text-sm font-bold mb-2 uppercase'
-              htmlFor='departure_date'
+              htmlFor='departure'
             >
               Ida
             </label>
@@ -97,19 +123,21 @@ const FormSearchTravels = () => {
               id='departure_date'
               onChange={handleChange}
               value={formData.departure_date}
+              min={getCurrentDate()}
             />
           </div>
           <div className='mb-4 md:ps-4  md:w-full box-border whitespace-nowrap'>
             <label
               className='block text-gray-700 text-sm font-bold mb-2 truncate'
-              htmlFor='return_date'
+              htmlFor='return'
             >
               VUELTA (opcional)
             </label>
             <DateInput
               id='return_date'
               onChange={handleChange}
-              value={formData.return_date}
+              value={returnDate}
+              min={formData.departure_date}
             />
           </div>
           <div className='mb-4 lg:ps-4 col-span-2 lg:col-span-1'>
@@ -126,7 +154,12 @@ const FormSearchTravels = () => {
           </div>
         </div>
         <div className='lg:mb-4 lg:pl-4 flex items-end justify-center'>
-          <SearchButton onClick={handleSearch} label='Buscar' />
+          <SearchButton
+            onClick={handleSearch}
+            label='Buscar'
+            url='/ticket'
+            disabled={!formValid}
+          />
         </div>
       </form>
     </div>

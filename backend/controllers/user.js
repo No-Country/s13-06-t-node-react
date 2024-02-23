@@ -12,7 +12,7 @@ module.exports = {
 
       // Si no se pudieron obtener los usuarios, lanzamos un error
       if (!users) {
-        throw new ErrorObject('No se pudieron obtener los usuarios!', 500);
+        throw new ErrorObject('No se pudieron obtener los usuarios.', 500);
       }
 
       // Si se pudieron obtener los usuarios, enviamos la respuesta
@@ -28,7 +28,7 @@ module.exports = {
         res,
         status: error.status || 'error',
         code: error.statusCode || 500,
-        message: error.message || 'Error al obtener los usuarios!'
+        message: error.message || 'Error al obtener los usuarios.'
       });
     }
   }),

@@ -1,8 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font:
+    14px 'Lexend',
+    'Lucida Grande',
+    Helvetica,
+    Arial,
+    sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: rgb(26 32 44 / 100%);
+}
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  gap: 50px;
+}
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.right img {
+  width: 100%;
+  height: auto;
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #14532d;
+}
+p {
+  margin-bottom: 20px;
+}
+.buttons {
+  display: flex;
+  gap: 20px;
+}
 a {
-  color: #00B7FF;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(74 222 128 / 85%);
+  color: #14532d;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #86efac;
+}
+
+@media (max-width: 568px) {
+  .container {
+    flex-direction: column;
+  }
+  .left {
+    order: 2;
+  }
+  .right {
+    order: 1;
+    margin-bottom: 40px;
+  }
+  .right img {
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.9));
+  }
 }

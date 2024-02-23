@@ -7,7 +7,7 @@ SeatLegendRow.propTypes = {
 
 function SeatLegendRow({ colorClass, text }) {
   return (
-    <div className='flex items-center mb-5'>
+    <div className='flex items-center  '>
       <div
         className={
           colorClass

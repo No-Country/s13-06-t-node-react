@@ -1,10 +1,9 @@
 name: Deploy Frontend
 on:
   pull_request:
-    types:
-      - closed
-  push:
-    branches: [develop]
+    types: [closed]
+    paths:
+      - 'frontend/**'
 
 jobs:
   deploy-frontend:

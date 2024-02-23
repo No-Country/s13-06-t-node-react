@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function DateInput({ id, value, onChange }) {
+function DateInput({ id, value, onChange, min }) {
   return (
     <input
       id={id}
@@ -8,6 +8,7 @@ function DateInput({ id, value, onChange }) {
       type='date'
       onChange={onChange}
       value={value}
+      min={min}
     />
   );
 }
@@ -15,7 +16,8 @@ function DateInput({ id, value, onChange }) {
 DateInput.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  min: PropTypes.string.isRequired
 };
 
 export default DateInput;

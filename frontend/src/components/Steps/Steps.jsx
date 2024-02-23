@@ -63,20 +63,18 @@ export const Steps = () => {
             </p>
           </div>
 
-          {index < sections.length - 1 && (
-            <>
-              <img
-                src={greenArrow}
-                alt={'greenArrow'}
-                className={`h-14 w-14 pr-2  ${index <= activeIndex ? 'block' : 'hidden'}`}
-              />
-              <img
-                src={blueArrow}
-                alt={'blueArrow'}
-                className={`h-14 w-14 pr-2  ${index <= activeIndex ? 'hidden' : 'block'}`}
-              />
-            </>
-          )}
+          <>
+            <img
+              src={greenArrow}
+              alt={'greenArrow'}
+              className={`h-14 w-14 pr-2  ${index <= activeIndex ? 'block' : 'hidden'}`}
+            />
+            <img
+              src={blueArrow}
+              alt={'blueArrow'}
+              className={`h-14 w-14 pr-2  ${index <= activeIndex ? 'hidden' : 'block'}`}
+            />
+          </>
         </div>
       ))}
     </div>

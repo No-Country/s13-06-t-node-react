@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    .left
+      h1= title
+      p Bienvenido a la aplicación de tickets de bus. Ticket Bus es una plataforma de vanguardia diseñada para modernizar y simplificar el proceso de reserva de boletos de autobús, brindando una solución integral tanto para operadores de autobuses como para pasajeros. Esta aplicación intuitiva y fácil de usar se destaca por su capacidad para ofrecer una experiencia de usuario sin complicaciones, permitiendo a los viajeros buscar, comparar y reservar pasajes de autobús en una amplia gama de rutas disponibles a nivel nacional.
+      p Selecciona una opción para continuar:
+      .buttons
+        a(href="https://ticket-bus.netlify.app/" target="_blank") Ir a la aplicación
+        a(href="https://ticket-bus-api-dev.up.railway.app/api-docs") Documentacion de la API
+    
+    .right
+      img(src="https://www.voyenbus.com/assets/img/veb/veb_empresas_header_02.webp", alt="Bus")
+  

@@ -3,7 +3,7 @@ import SeatLegendList from './SeatLegendList.jsx';
 
 function PricesCard() {
   return (
-    <div className='bg-[#DEE5ED] max-w-[304px] h-[401px] rounded-[10px] px-16 pt-6 pb-7 mt-24'>
+    <div className='bg-[#DEE5ED]  md:h-[401px] rounded-[10px] px-10 pt-6 pb-7 mt-4 md:mt-24 w-full'>
       <PriceList />
       <SeatLegendList />
     </div>

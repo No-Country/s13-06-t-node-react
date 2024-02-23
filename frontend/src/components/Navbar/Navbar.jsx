@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Logo } from './Logo';
 import { NavigationLinks } from './NavigationLinks';
 import { UserActions } from './UserActions';
+import person from '../../assets/Navbar/person.svg';
+import hamburgerBar from '../../assets/Navbar/hamburgerbar.svg';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,24 +12,18 @@ export const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <nav className='bg-[#D3DCE7] h-28 border-2 border-[#697f9c]'>
+    // TODO: el boton Mi Cuenta se rompe de 768px a 910px, solucionar
+    <nav className='bg-[#486284] md:bg-[#D3DCE7] h-16 md:min-h-28 border-0 md:border-2 md:border-[#697f9c]'>
       <div className='h-full mx-6 md:mx-14 flex items-center'>
         <Logo />
-        <button className={`md:hidden `} onClick={toggleMenu}>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className=' h-6 w-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth={2}
-              d='M4 6h16M4 12h16M4 18h16'
-            />
-          </svg>
+        <button
+          className={`md:hidden text-white md:text-[#486284]`}
+          onClick={toggleMenu}
+        >
+          <img src={hamburgerBar} />
+        </button>
+        <button className='md:hidden ml-4 align-middle'>
+          <img src={person} className='align-' />
         </button>
         <div
           className={`md:flex ${isMenuOpen ? 'flex' : 'hidden'} md:items-center md:justify-end flex-col md:flex-row`}

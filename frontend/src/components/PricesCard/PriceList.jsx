@@ -1,5 +1,4 @@
-import PriceRow from './PriceRow.jsx';
-import Seat from '../../assets/PricesCard/seat.svg';
+import bed from '../../assets/PricesCard/bed.svg';
 
 // data endpoint
 const data = {
@@ -9,21 +8,21 @@ const data = {
 
 function PriceList() {
   return (
-    <table className='table'>
-      <thead>
-        <tr className='flex flex-col'>
-          <th className='pb-1 font-bold text-xl text-[#1A202C] tracking-tight'>
-            Lista de precios
-          </th>
-          <th className='pb-7 text-[#A0A0A0] font-medium text-sm uppercase'>
-            {data.seatType}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <PriceRow src={Seat} price={data.price} />
-      </tbody>
-    </table>
+    <div className='flex md:flex-col items-center gap-8 md:gap-1 md:text-center'>
+      <div>
+        <p className='md:pb-1 pb-0 font-bold text-xl text-[#1A202C] tracking-tight md:mb-3 mb-0'>
+          Calidad del servicio
+        </p>
+
+        <p className='pb-7 text-[#A0A0A0] font-medium text-sm uppercase'>
+          {data.seatType}
+        </p>
+      </div>
+
+      <div>
+        <img className='w-11 h-11' src={bed} />
+      </div>
+    </div>
   );
 }
 
