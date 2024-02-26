@@ -9,9 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Amenity.belongsTo(models.Vehicle, {
-        foreignKey: 'idVehicle',
-        as: 'vehicle',
+      Amenity.belongsToMany(models.Vehicle, {
+        through: 'VehicleAmenity',
+        foreignKey: 'amenityId',
+        as: 'vehicles',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
@@ -19,43 +20,16 @@ module.exports = (sequelize, DataTypes) => {
   }
   Amenity.init(
     {
-      idVehicle: {
-        type: DataTypes.INTEGER,
+      name: {
+        type: DataTypes.STRING,
         allowNull: false,
-        references: {
-          model: 'Vehicle',
-          key: 'id'
-        }
-      },
-      usb: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
-      tv: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
-      food: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
-      wifi: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-      },
-      airConditioner: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
+        unique: true
       }
     },
     {
       sequelize,
-      modelName: 'Amenity'
+      modelName: 'Amenity',
+      timestamps: false
     }
   );
   return Amenity;

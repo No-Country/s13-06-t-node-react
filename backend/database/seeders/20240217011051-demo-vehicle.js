@@ -9,102 +9,102 @@ module.exports = {
       [
         {
           number: 1,
-          plate: 'QRST90',
+          plate: 'qrst90',
           totalSeats: 60
         },
         {
           number: 2,
-          plate: 'ABCD12',
+          plate: 'abcd12',
           totalSeats: 40
         },
         {
           number: 3,
-          plate: 'WXYZ34',
+          plate: 'wxyz34',
           totalSeats: 40
         },
         {
           number: 4,
-          plate: 'PQRS56',
+          plate: 'pqrs56',
           totalSeats: 60
         },
         {
           number: 5,
-          plate: 'JKLM78',
+          plate: 'jklm78',
           totalSeats: 40
         },
         {
           number: 6,
-          plate: 'UVWX90',
+          plate: 'uvwx90',
           totalSeats: 60
         },
         {
           number: 7,
-          plate: 'STUV12',
+          plate: 'stuv12',
           totalSeats: 40
         },
         {
           number: 8,
-          plate: 'EFGH34',
+          plate: 'efgh34',
           totalSeats: 60
         },
         {
           number: 9,
-          plate: 'IJKL56',
+          plate: 'ijkl56',
           totalSeats: 40
         },
         {
           number: 10,
-          plate: 'MNOP78',
+          plate: 'mnop78',
           totalSeats: 40
         },
         {
           number: 11,
-          plate: 'ABCD34',
+          plate: 'abcd34',
           totalSeats: 60
         },
         {
           number: 12,
-          plate: 'EFGH56',
+          plate: 'efgh56',
           totalSeats: 40
         },
         {
           number: 13,
-          plate: 'IJKL78',
+          plate: 'ijkl78',
           totalSeats: 40
         },
         {
           number: 14,
-          plate: 'MNOP90',
+          plate: 'mnop90',
           totalSeats: 60
         },
         {
           number: 15,
-          plate: 'QRST12',
+          plate: 'qrst12',
           totalSeats: 40
         },
         {
           number: 16,
-          plate: 'UVWX34',
+          plate: 'uvwx34',
           totalSeats: 60
         },
         {
           number: 17,
-          plate: 'YZAB56',
+          plate: 'yzab56',
           totalSeats: 40
         },
         {
           number: 18,
-          plate: 'CDEF78',
+          plate: 'cdef78',
           totalSeats: 60
         },
         {
           number: 19,
-          plate: 'GHIJ90',
+          plate: 'ghij90',
           totalSeats: 40
         },
         {
           number: 20,
-          plate: 'KLMN12',
+          plate: 'klmn12',
           totalSeats: 40
         }
       ],

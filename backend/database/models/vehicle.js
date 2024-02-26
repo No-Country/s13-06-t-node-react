@@ -9,25 +9,36 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Vehicle.hasMany(models.Amenity, {
-        foreignKey: 'idVehicle',
+      Vehicle.belongsToMany(models.Amenity, {
+        through: 'VehicleAmenity',
+        foreignKey: 'vehicleId',
         as: 'amenities',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
-      Vehicle.hasMany(models.Amenity, {
-        foreignKey: 'idVehicle',
+
+      Vehicle.hasMany(models.Schedule, {
+        foreignKey: 'vehicleId',
         as: 'schedules',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       });
+
+      // Association whit Seats
+      /* Vehicle.hasMany(models.Seat, {
+        foreignKey: 'vehicleId',
+        as: 'seats',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      }); */
     }
   }
   Vehicle.init(
     {
       number: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       plate: {
         type: DataTypes.STRING,
@@ -41,7 +52,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Vehicle'
+      modelName: 'Vehicle',
+      timestamps: false
     }
   );
   return Vehicle;

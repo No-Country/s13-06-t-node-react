@@ -2,26 +2,30 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Vehicles', {
+    await queryInterface.createTable('VehicleAmenities', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
+        primaryKey: true
+      },
+      vehicleId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        references: {
+          model: 'Vehicles',
+          key: 'id'
+        }
       },
-      number: {
+      amenityId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true
-      },
-      plate: {
-        type: Sequelize.STRING(8),
-        allowNull: false,
-        unique: true
-      },
-      totalSeats: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        primaryKey: true,
+        references: {
+          model: 'Amenities',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Vehicles');
+    await queryInterface.dropTable('VehicleAmenities');
   }
 };
