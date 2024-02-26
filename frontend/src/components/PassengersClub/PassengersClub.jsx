@@ -1,4 +1,9 @@
-export default function PassengersClub() {
+import PropTypes from 'prop-types';
+import Button from './Button';
+
+export default function PassengersClub({ accumulatedKm, additionalKm }) {
+  const totalKm = accumulatedKm + additionalKm;
+
   return (
     <div className='bg-[#DEE5ED] md:mt-16 m-0 p-3 rounded-lg flex flex-col justify-center items-center'>
       <div className='bg-[#A3DEC2] mt-3 w-24 h-24 rounded-full flex items-center justify-center overflow-hidden'>
@@ -15,22 +20,23 @@ export default function PassengersClub() {
         Suma no solo kilómetros sino también historias que contar
       </p>
       <div className='flex justify-between items-center w-full px-2 pt-12 border-b-[1px] pb-2 border-[#576F8E]'>
-        <p className='text-base font-bold text-[#1A202C]'>KM acomulados</p>
-        <p className='text-lg font-bold text-[#1A202C]'>2800</p>
+        <p className='text-base font-bold text-[#1A202C]'>KM acumulados</p>
+        <p className='text-lg font-bold text-[#1A202C]'>{accumulatedKm}</p>
       </div>
       <div className='flex justify-between items-center w-full px-2 pt-2 border-b-[1px] pb-2 border-[#576F8E]'>
-        <p className='text-base font-bold text-[#1A202C]'>KM acomulados</p>
-        <p className='text-lg font-bold text-[#1A202C]'>+1600</p>
+        <p className='text-base font-bold text-[#1A202C]'>KM a sumar</p>
+        <p className='text-lg font-bold text-[#1A202C]'>+{additionalKm}</p>
       </div>
       <div className='flex justify-end w-full pt-2 px-2 gap-5 items-center'>
         <p className='text-base font-bold text-[#1A202C]'>Total: </p>
-        <p className='text-lg font-bold text-[#1A202C]'>2800</p>
+        <p className='text-lg font-bold text-[#1A202C]'>{totalKm}</p>
       </div>
-      <button
-        className={`bg-[#27C277] hover:bg-[#70e7ad] px-5 rounded-[40px] py-2 flex items-center w-40 justify-center font-semibold text-white tracking-tight mb-12 mt-8`}
-      >
-        Ver detalle
-      </button>
+      <Button name={'Ver detalle'} />
     </div>
   );
 }
+
+PassengersClub.propTypes = {
+  accumulatedKm: PropTypes.number.isRequired,
+  additionalKm: PropTypes.number.isRequired
+};
