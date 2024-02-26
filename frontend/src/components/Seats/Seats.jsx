@@ -31,7 +31,6 @@ const Seats = (props) => {
   const [sectionE, setSectionE] = useState([]);
   const [floor, setFloor] = useState('first');
   const [showToast, setShowToast] = useState(false);
-  const [toastTimerId, setToastTimerId] = useState(null);
   const { tickets = 1 } = props;
 
   const initializeSection = (
@@ -86,15 +85,6 @@ const Seats = (props) => {
         return;
       }
       setShowToast(true);
-
-      if (toastTimerId) {
-        clearTimeout(toastTimerId);
-      }
-
-      const newToastTimerId = setTimeout(() => {
-        setShowToast(false);
-      }, 2000);
-      setToastTimerId(newToastTimerId);
       return;
     }
 
@@ -127,19 +117,6 @@ const Seats = (props) => {
       return newState;
     });
   };
-
-  const handleToastClose = () => {
-    if (toastTimerId) {
-      clearTimeout(toastTimerId);
-    }
-    setShowToast(false);
-  };
-
-  useEffect(() => {
-    return () => {
-      clearTimeout(toastTimerId);
-    };
-  }, [toastTimerId]);
 
   return (
     <div className='flex flex-col items-center w-full max-w-[350px] justify-start m-2'>
@@ -265,12 +242,13 @@ const Seats = (props) => {
         </div>
       )}
 
-      <Toast
-        showToast={showToast}
-        setShowToast={setShowToast}
-        tickets={tickets}
-        handleToastClose={handleToastClose}
-      />
+      <Toast showToast={showToast} setShowToast={setShowToast} type='warning'>
+        <span>
+          {tickets === 1
+            ? 'Ya seleccionaste tu asiento'
+            : `Ya seleccionaste tus ${tickets} asientos`}
+        </span>
+      </Toast>
     </div>
   );
 };
