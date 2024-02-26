@@ -56,14 +56,14 @@ export const Steps = () => {
                   : 'hidden'
           } md:flex`}
         >
-          <div className='flex gap-4 ml-8'>
+          <div className='flex gap-4 sm:ml-8 ml-3'>
             <img src={icons[section]} alt={''} className='w-6 h-6 ' />
             <p className={`${index === activeIndex + 1 ? '' : 'block'}`}>
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </p>
           </div>
 
-          <>
+          <div className='overflow-x-hidden'>
             <img
               src={greenArrow}
               alt={'greenArrow'}
@@ -74,7 +74,7 @@ export const Steps = () => {
               alt={'blueArrow'}
               className={`h-14 w-14 pr-2  ${index <= activeIndex ? 'hidden' : 'block'}`}
             />
-          </>
+          </div>
         </div>
       ))}
     </div>

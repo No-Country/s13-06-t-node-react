@@ -65,7 +65,7 @@ const Autocomplete = ({ id, items, value, onChange, resetInput }) => {
         onClick={handleInputClick}
         placeholder='Capital'
       />
-      <AutocompleteIcon />
+      <AutocompleteIcon isOpen={open} />
       {open && (
         <DropdownContent
           filteredItems={filteredItems}

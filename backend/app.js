@@ -16,6 +16,9 @@ var indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
 const vehiclesRouter = require('./routes/vehicle');
+const routesRouter = require('./routes/route');
+const schedulesRouter = require('./routes/schedules');
+
 
 var app = express();
 
@@ -77,6 +80,9 @@ app.use('/', indexRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/vehicles', vehiclesRouter);
+app.use('/api/v1/routes', routesRouter);
+app.use('/api/v1/schedules', schedulesRouter);
+
 
 // Swagger specification
 const specs = swaggerJsDoc(options);

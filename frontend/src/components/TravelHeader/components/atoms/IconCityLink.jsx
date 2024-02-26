@@ -6,7 +6,7 @@ function IconCityLink({ iconSrc, iconAlt, href, text }) {
       <img src={iconSrc} alt={iconAlt} className='w-4 h-4' />
       <a
         href={href}
-        className='ml-2 text-balance whitespace-nowrap sm:col-span-1'
+        className='ml-2 text-balance whitespace-nowrap sm:col-span-1 truncate'
       >
         {text}
       </a>

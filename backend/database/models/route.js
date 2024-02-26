@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Route.belongsTo(models.Terminal, {
         as: 'originTerminal',
-        foreignKey: 'terminalId',
+        foreignKey: 'originId',
         onDelete: 'CASCADE'
       }),
         Route.belongsTo(models.Terminal, {
           as: 'destinationTerminal',
-          foreignKey: 'terminalId',
+          foreignKey: 'destinationId',
           onDelete: 'CASCADE'
         }),
         Route.hasMany(models.Schedule, {
@@ -59,7 +59,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Route'
+      modelName: 'Route',
+      timestamps: false
     }
   );
   return Route;

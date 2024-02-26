@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function LogoTravel({ imagePath }) {
   return (
     <div className='hidden lg:flex items-center box-border'>
-      <a
-        href='/'
+      <Link
+        to={'/'}
         className='font-semibold xl:text-4xl lg:text-3xl ml-1 lg:-ml-1'
       >
         {imagePath ? (
@@ -12,7 +13,7 @@ function LogoTravel({ imagePath }) {
         ) : (
           'Logo'
         )}
-      </a>
+      </Link>
     </div>
   );
 }
