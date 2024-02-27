@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       Seat.belongsTo(models.Vehicle, {
         as: 'vehicle',
         foreignKey: 'vehicleId',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
     }
   }
@@ -35,11 +36,24 @@ module.exports = (sequelize, DataTypes) => {
       category: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+
+      isAvailable: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+      },
+
+      blockedByUser: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue: null
       }
     },
     {
       sequelize,
-      modelName: 'Seat'
+      modelName: 'Seat',
+      timestamps: false
     }
   );
   return Seat;

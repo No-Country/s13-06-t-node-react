@@ -27,13 +27,25 @@ module.exports = {
       category: {
         type: Sequelize.ENUM('standard', 'semi-cama', 'cama')
       },
+      isAvailable: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
+      },
+      blockedByUser: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        defaultValue: null
+      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },
