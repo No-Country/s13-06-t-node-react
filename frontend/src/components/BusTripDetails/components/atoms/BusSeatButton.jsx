@@ -4,7 +4,7 @@ const BusSeatButton = ({ seatNumber, isActive, onClick }) => {
   return (
     <button
       type='button'
-      className={`w-10 h-10 rounded m-1 text-white ${
+      className={`lg:w-10 sm:w-7 w-10 lg:h-10 sm:h-7 h-10 rounded m-1 text-white ${
         isActive ? 'bg-[#FF5F00] ' : 'bg-[#68D79680]'
       }`}
       aria-label={`Seat ${seatNumber}`}

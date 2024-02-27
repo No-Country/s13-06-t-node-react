@@ -5,7 +5,7 @@ function ReturnButton({ to, label }) {
   return (
     <Link
       to={to}
-      className='hidden md:block text-center bg-transparent rounded-full w-40 hover:bg-[#D97706] text-[#3A556A] font-semibold hover:text-white py-2 px-6 border border-[#D97706] hover:border-transparent text-base'
+      className='hidden sm:block text-center bg-transparent rounded-full w-40 hover:bg-[#D97706] text-[#3A556A] font-semibold hover:text-white py-2 px-6 border border-[#D97706] hover:border-transparent text-base'
     >
       {label}
     </Link>

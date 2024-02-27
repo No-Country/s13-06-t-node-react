@@ -10,7 +10,7 @@ function ContinueButton({ to, label, disabled }) {
   return (
     <Link
       to={href}
-      className={`text-center rounded-full w-40 text-white font-semibold py-2 px-6 border text-base ${backgroundClass}`}
+      className={`block text-center text-white ${backgroundClass} rounded-full w-40  font-semibold hover:text-white py-2 px-6 text-base`}
       disabled={disabled}
     >
       {label}

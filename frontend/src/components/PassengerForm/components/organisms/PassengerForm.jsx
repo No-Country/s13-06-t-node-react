@@ -1,14 +1,13 @@
 import TitleSubtitle from '../molecules/TitleSubtitle';
 import SelectForm from '../atoms/SelectForm';
 import FormNavigation from '../molecules/FormNavigation';
-import ContinueButton from '../atoms/ContinueButton';
 import TextInput from '../atoms/TextInput';
 import PassengerList from '../atoms/PassengerList';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-function PassengerForm() {
+function PassengerForm({ auth }) {
   const [isToggled, setIsToggled] = useState(false);
-  const auth = false; // Si inicio sesión
 
   // Controla la Lista de Pasajeros si Inicio Sesión
   const handleToggleChange = (value) => {
@@ -36,7 +35,7 @@ function PassengerForm() {
   ];
 
   return (
-    <div className='md:bg-[#CED7E4] bg-[#F1F1F1] flex flex-col h-full relative z-30'>
+    <div className='sm:bg-[#CED7E4] bg-[#F1F1F1] flex flex-col h-full relative'>
       <TitleSubtitle />
       <div className='w-full'>
         <form
@@ -63,17 +62,12 @@ function PassengerForm() {
           <TextInput id='dni' placeholder='N° DE DOCUMENTO' />
         </form>
       </div>
-      <div className='hidden md:block flex-1 bg-[#CED7E4]'>
-        <div className='h-full flex items-center justify-center'>
-          <ContinueButton
-            label='Continuar'
-            to='/ticket/summary'
-            disabled={false}
-          />
-        </div>
-      </div>
     </div>
   );
 }
+
+PassengerForm.propTypes = {
+  auth: PropTypes.bool.isRequired
+};
 
 export default PassengerForm;

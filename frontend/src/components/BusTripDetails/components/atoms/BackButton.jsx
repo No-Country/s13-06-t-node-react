@@ -6,7 +6,7 @@ function BackButton({ to }) {
   return (
     <Link
       to={to}
-      className='md:hidden bg-transparent flex rounded-full mb-2 items-center pl-3 pr-2 relative w-11 h-11 border border-[#D97706]'
+      className='sm:hidden bg-transparent flex rounded-full mb-2 items-center pl-3 pr-2 relative w-11 h-11 border border-[#D97706]'
     >
       <img src={ArrowBack} alt='Go back to previous page' />
     </Link>
