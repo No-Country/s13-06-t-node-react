@@ -34,17 +34,17 @@ module.exports = {
 
   getAvailableSchedules: catchAsync(async (req, res) => {
     try {
-      const { originTerminal, destinationTerminal, date } = req.query;
-
+      const { originCity, destinationCity, date } = req.query;
+      console.log(originCity, destinationCity, date);
       const schedules = await ScheduleService.getAvailableSchedules(
-        originTerminal,
-        destinationTerminal,
+        originCity,
+        destinationCity,
         date
       );
 
       if (!schedules || schedules.length === 0) {
         throw new ErrorObject(
-          `No se encontró ningún horario para ruta con origen ${originTerminal} - destino ${destinationTerminal} para la fecha ${date}.`,
+          `No se encontró ningún horario para ruta con origen ${originCity} - destino ${destinationCity} para la fecha ${date}.`,
           404
         );
       }
