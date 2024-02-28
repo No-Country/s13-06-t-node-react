@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const RouteService = require('../services/route');
 const { catchAsync } = require('../helpers/catchAsync');
 const { endpointResponse } = require('../helpers/success');
