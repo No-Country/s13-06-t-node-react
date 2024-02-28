@@ -11,3 +11,12 @@ export const getCurrentDate = () => {
 
   return `${year}-${month}-${day}`;
 };
+
+export const getUpcomingYears = () => {
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 11 }, (_, i) => {
+    const year = currentYear + i;
+    return { value: year.toString(), option: year.toString() };
+  });
+  return years;
+};
