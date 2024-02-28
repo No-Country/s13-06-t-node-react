@@ -1,7 +1,8 @@
 import ArrowRightSVG from '../../assets/TravelHeader/Arrow Right.svg';
-import BackButton from '../../components/BackButton';
-import CreditCardForm from '../../components/CreditCardForm/CreditCardForm';
-import TripDetailsCard from '../../components/TripDetailsCard';
+import BackButton from '../../components/BackButton.jsx';
+import CreditCardForm from '../../components/CreditCardForm/CreditCardForm.jsx';
+import TripDetailsCard from '../../components/TripDetailsCard.jsx';
+import Timer from '../../components/Timer/Timer.jsx';
 
 function Payment() {
   return (
@@ -41,7 +42,9 @@ function Payment() {
           </div>
 
           {/* Columna 3 */}
-          <div className='md:col-span-1 sm:col-span-1 col-span-1 relative order-last'></div>
+          <div className='md:col-span-1 sm:col-span-1 col-span-1 relative order-last'>
+            <Timer />
+          </div>
         </div>
       </div>
     </main>
