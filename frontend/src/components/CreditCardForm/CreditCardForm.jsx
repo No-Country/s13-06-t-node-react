@@ -112,7 +112,9 @@ function CreditCardForm() {
       <h1 className='text-[#1A202C] text-[32px] font-semibold text-center mb-4'>
         Datos de Tarjeta
       </h1>
-      <img src={creditCard} className='mx-auto -mb-12' />
+      <div className='flip-container'>
+        <img src={creditCard} className='mx-auto -mb-12 flip-image' />
+      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
