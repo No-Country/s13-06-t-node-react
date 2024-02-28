@@ -36,7 +36,7 @@ function Payment() {
           </div>
 
           {/* Columna 2 */}
-          <div className='lg:col-span-2 md:col-span-2 sm:col-span-2 col-span-1 relative order-1 md:order-2'>
+          <div className='lg:col-span-2 md:col-span-2 sm:col-span-3 col-span-1 relative order-1 md:order-2'>
             <CreditCardForm />
           </div>
 

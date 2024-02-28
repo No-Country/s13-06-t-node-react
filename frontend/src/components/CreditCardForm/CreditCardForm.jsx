@@ -120,7 +120,7 @@ function CreditCardForm() {
           e.preventDefault();
           console.log(form);
         }}
-        className='bg-[#D3DCE7] rounded-md lg:px-24 md:pb-4 pt-16 pb-2 px-4 shadow text-sm max-w-lg mx-auto'
+        className='bg-[#D3DCE7] rounded-md lg:px-24 md:pb-4 pt-16 pb-2 px-4 shadow text-sm max-w-lg mx-auto w-full'
         autoComplete='off'
       >
         <div className='max-w-[333px] mx-auto'>
@@ -139,22 +139,22 @@ function CreditCardForm() {
               onChange={handleCardNumberChange}
               isValid={validateCardNumber()}
             />
-            <div className='flex'>
+            <div className='flex overflow-hidden w-full'>
               <SelectForm
                 options={months}
                 placeholder='MES'
-                className={'mr-[10px] max-w-24 w-full z-10'}
+                className={'mr-[10px] w-1/3 z-10'}
                 onChange={handleMonthChange}
                 value={form.month}
               />
               <SelectForm
                 options={years}
                 placeholder='AÑO'
-                className={'mr-4 max-w-24 w-full z-10'}
+                className={'mr-4 w-1/3 z-10'}
                 onChange={handleYearChange}
                 value={form.year}
               />
-              <div className='w-full'>
+              <div className='w-1/3'>
                 <TextInput
                   id='ccv'
                   placeholder='CCV'
