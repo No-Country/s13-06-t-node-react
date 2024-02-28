@@ -1,75 +1,57 @@
-import PropTypes from 'prop-types';
-import { useRef, useState, useEffect } from 'react';
-import AutocompleteInput from '../atoms/AutocompleteInput';
+import { useState, useRef, useEffect } from 'react';
 import AutocompleteIcon from '../atoms/AutocompleteIcon';
+import PropTypes from 'prop-types';
 import DropdownContent from '../molecules/DropdownContent/DropdownContent';
-import useAutocomplete from '../../hooks/useAutocomplete';
 
-const Autocomplete = ({ id, items, value, onChange, resetInput }) => {
-  const ref = useRef(null);
-  const [open, setOpen] = useState(false);
-  const { inputValue, handleChange, resetInputState } = useAutocomplete(value);
-  const [filteredItems, setFilteredItems] = useState([]);
-
-  const handleInputChange = (inputValue) => {
-    handleChange(inputValue);
-    const filtered = items.filter((item) =>
-      item.toLowerCase().includes(inputValue.toLowerCase())
-    );
-    setFilteredItems(filtered);
-    setOpen(true);
-
-    onChange({ target: { id: id, value: inputValue } });
-  };
-
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setOpen(false);
-    }
-  };
-
-  const handleInputClick = () => {
-    setOpen(true);
-  };
-
-  const handleItemClick = (item) => {
-    const event = { target: { id: id, value: item } };
-    onChange(event);
-    handleChange(item);
-    setOpen(false);
-  };
+const Autocomplete = ({ id, value, onChange, options, placeholder }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [filteredOptions, setFilteredOptions] = useState(options); // Estado para almacenar las opciones filtradas
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
+    // Agregar un event listener para cerrar el dropdown cuando se hace clic fuera de él
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
+
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
   useEffect(() => {
-    if (resetInput) {
-      resetInputState();
-    }
-  }, [resetInput, resetInputState]);
+    // Filtrar las opciones según lo que el usuario haya ingresado en el input
+    const filtered = options.filter((city) =>
+      city.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilteredOptions(filtered);
+  }, [value, options]);
+
+  const handleItemClick = (city) => {
+    onChange({ target: { value: city } });
+    setShowDropdown(false);
+  };
 
   return (
-    <div
-      className={`relative z-1 dropdown w-full  ${open ? 'dropdown-open' : ''}`}
-      ref={ref}
-    >
-      <AutocompleteInput
+    <div ref={dropdownRef} className='relative'>
+      <input
         id={id}
-        name={id}
-        value={inputValue}
-        onChange={(e) => handleInputChange(e.target.value)}
-        onClick={handleInputClick}
-        placeholder='Capital'
+        type='text'
+        value={value}
+        placeholder={placeholder}
+        onChange={onChange}
+        onClick={() => setShowDropdown(true)}
+        className='appearance-auto xl:w-48 w-full bg-white border border-white text-gray-700 py-2 px-1 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
       />
-      <AutocompleteIcon isOpen={open} />
-      {open && (
+      <AutocompleteIcon isOpen={showDropdown} />
+      {showDropdown && (
         <DropdownContent
-          filteredItems={filteredItems}
-          handleItemClick={handleItemClick}
+          filteredOptions={filteredOptions}
+          onItemClick={handleItemClick}
         />
       )}
     </div>
@@ -78,10 +60,10 @@ const Autocomplete = ({ id, items, value, onChange, resetInput }) => {
 
 Autocomplete.propTypes = {
   id: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.string).isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  resetInput: PropTypes.bool.isRequired
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  placeholder: PropTypes.string.isRequired
 };
 
 export default Autocomplete;

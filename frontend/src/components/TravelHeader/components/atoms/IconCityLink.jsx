@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function IconCityLink({ iconSrc, iconAlt, href, text }) {
   return (
-    <div className='flex items-center justify-between'>
+    <div className='flex items-center justify-between text-midnight-slate'>
       <img src={iconSrc} alt={iconAlt} className='w-4 h-4' />
       <a
         href={href}

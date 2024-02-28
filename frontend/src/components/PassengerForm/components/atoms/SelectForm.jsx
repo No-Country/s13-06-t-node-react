@@ -35,7 +35,7 @@ function SelectForm({ options }) {
         className='shadow flex items-center justify-between bg-white w-full border rounded py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
         onClick={handleToggleDropdown}
       >
-        <span className='text-sm leading-none uppercase text-gray-400'>
+        <span className='text-sm leading-none uppercase text-gray-400 whitespace-nowrap'>
           {selectedOption}
         </span>
         <svg

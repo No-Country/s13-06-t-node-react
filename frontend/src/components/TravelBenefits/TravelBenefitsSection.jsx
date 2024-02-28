@@ -1,4 +1,4 @@
-import placeholder from '../../assets/TravelBenefitsSection/placeholder.webp';
+import beneficio from '../../assets/TravelBenefitsSection/beneficio.jpg';
 import digital_tickets from '../../assets/TravelBenefitsSection/digital_tickets.svg';
 import notifications from '../../assets/TravelBenefitsSection/notifications.svg';
 import service_quality from '../../assets/TravelBenefitsSection/service_quality.svg';
@@ -18,7 +18,7 @@ const TravelBenefitsSection = () => {
       <div className='lg:flex px-3 h-4/6 w-full justify-evenly items-center'>
         <img
           className='lg:h-full h-auto lg:max-w-xl max-w-screen rounded-lg'
-          src={placeholder}
+          src={beneficio}
           alt='placeholder'
         />
         <div className='lg:w-2/6 gap-6 pt-4 lg:pt-0 px-1 flex flex-col justify-between '>

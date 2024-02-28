@@ -1,25 +1,19 @@
 import PropTypes from 'prop-types';
 import DropdownItem from '../../atoms/DropdownItem';
 
-const DropdownContent = ({ filteredItems, handleItemClick }) => {
+const DropdownContent = ({ filteredOptions, onItemClick }) => {
   return (
-    <div className='dropdown-content bg-base-200 top-11 max-h-96 overflow-auto flex-col absolute z-30 w-full'>
-      <ul className='menu menu-compact' style={{ width: '100%' }}>
-        {filteredItems.map((item, index) => (
-          <DropdownItem
-            key={index}
-            item={item}
-            onClick={() => handleItemClick(item)}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul className='bg-base-200 top-11 max-h-96 overflow-auto flex-col absolute z-30 w-full'>
+      {filteredOptions.map((city, index) => (
+        <DropdownItem key={index} city={city} onItemClick={onItemClick} />
+      ))}
+    </ul>
   );
 };
 
 DropdownContent.propTypes = {
-  filteredItems: PropTypes.array.isRequired,
-  handleItemClick: PropTypes.func.isRequired
+  filteredOptions: PropTypes.array.isRequired,
+  onItemClick: PropTypes.func.isRequired
 };
 
 export default DropdownContent;

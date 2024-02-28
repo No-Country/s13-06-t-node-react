@@ -27,7 +27,7 @@ function PromoRegister() {
         <div className='flex flex-col items-center justify-center'>
           <SignUpSection
             title='Regístrate ahora y ahorra tiempo en cada compra'
-            buttonText='Register'
+            buttonText='Registrarme'
             buttonHref='/register'
           />
         </div>

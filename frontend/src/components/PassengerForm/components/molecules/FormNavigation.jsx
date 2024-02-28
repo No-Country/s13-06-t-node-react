@@ -24,7 +24,7 @@ function FormNavigation({ passenger, onClick, isAuth }) {
 
   return (
     <div
-      className={`flex justify-between items-center bg-[#27C277] text-white p-2 rounded shadow relative z-30`}
+      className={`flex justify-between items-center bg-meadow-green text-white p-2 rounded shadow relative z-30`}
     >
       {passenger > 1 && <LeftButton onClick={handleLeftClick} />}
       <PassengerNumber currentPassenger={currentPassenger} />

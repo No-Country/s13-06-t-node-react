@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function LinkWithIcon({ link, iconSrc, altText, text, position }) {
   return (
-    <div className='sm:mx-2 sm:col-span-1'>
+    <div className='sm:mx-2 sm:col-span-1 text-midnight-slate'>
       <a
         href={link}
         className={`flex items-center md:justify-center justify-${position} whitespace-nowrap`}

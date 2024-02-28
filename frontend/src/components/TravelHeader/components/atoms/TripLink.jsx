@@ -5,7 +5,7 @@ function TripLink({ link, text }) {
     <div className='lg:col-span-2 md:col-span-2 sm:col-span-2 col-span-1 flex items-center lg:justify-center md:justify-start justify-center'>
       <a
         href={link}
-        className='text-[#1A202C] font-semibold pr-2 uppercase whitespace-nowrap md:text-base text-xs'
+        className='text-midnight-slate sm:text-[#1A202C] font-semibold pr-2 uppercase whitespace-nowrap md:text-base text-xs'
       >
         {text}
       </a>

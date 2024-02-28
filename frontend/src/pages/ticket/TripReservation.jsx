@@ -2,6 +2,7 @@ import { BusTripDetails } from '../../components/BusTripDetails';
 import ReturnButton from '../../components/BusTripDetails/components/atoms/ReturnButton';
 import { PassengerForm } from '../../components/PassengerForm';
 import ContinueButton from '../../components/PassengerForm/components/atoms/ContinueButton';
+import PassengersClub from '../../components/PassengersClub/PassengersClub';
 import { PromoRegister } from '../../components/PromoRegister';
 import SignUpSection from '../../components/PromoRegister/components/molecules/SignUpSection';
 
@@ -15,7 +16,7 @@ function TripReservation() {
           {/* Columna 1 */}
           <div className='lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-1 relative order-2 sm:order-1'>
             <BusTripDetails />
-            <div className='hidden sm:block absolute bottom-1/3 sm:bottom-4 md:bottom-5 left-1/2 transform -translate-x-1/2 bottom-md'>
+            <div className='hidden sm:block absolute bottom-1/3 left-1/2 transform -translate-x-1/2 bottom-md'>
               <ReturnButton to='/ticket/seats' label='Volver' />
             </div>
           </div>
@@ -23,7 +24,7 @@ function TripReservation() {
           {/* Columna 2 */}
           <div className='lg:col-span-2 md:col-span-2 sm:col-span-2 col-span-1 relative order-1 md:order-2'>
             <PassengerForm auth={auth} />
-            <div className='hidden sm:block absolute bottom-1/3 sm:bottom-4 md:bottom-5 left-1/2 transform -translate-x-1/2 bottom-md'>
+            <div className='hidden sm:block absolute bottom-1/3 left-1/2 transform -translate-x-1/2 bottom-md'>
               <ContinueButton
                 label='Continuar'
                 to='/ticket/summary'
@@ -33,21 +34,22 @@ function TripReservation() {
           </div>
 
           {/* Columna 3 */}
+
           <div className='md:col-span-1 sm:col-span-1 col-span-1 relative order-last'>
             {!auth ? (
               <>
                 {/* Contenido si no Inicio Sesión*/}
                 <PromoRegister />
-                <div className='hidden sm:block absolute bottom-1/3 sm:bottom-4 md:bottom-5 left-1/2 transform -translate-x-1/2 bottom-md'>
+                <div className='hidden sm:block absolute bottom-1/3 left-1/2 transform -translate-x-1/2 bottom-md'>
                   <SignUpSection
                     title='Regístrate ahora y ahorra tiempo en cada compra'
-                    buttonText='Register'
+                    buttonText='Registrarme'
                     buttonHref='/register'
                   />
                 </div>
               </>
             ) : (
-              <p>Component MemberClubMiles</p>
+              <PassengersClub accumulatedKm={3800} additionalKm={600} />
             )}
           </div>
         </div>

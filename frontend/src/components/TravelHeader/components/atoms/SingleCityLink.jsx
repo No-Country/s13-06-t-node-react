@@ -4,7 +4,7 @@ function SingleCityLink({ href, text }) {
   return (
     <a
       href={href}
-      className='mr-2 text-balance whitespace-nowrap sm:col-span-1'
+      className='mr-2 text-balance whitespace-nowrap sm:col-span-1 text-midnight-slate'
     >
       {text}
     </a>
