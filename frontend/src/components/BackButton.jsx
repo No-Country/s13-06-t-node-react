@@ -14,6 +14,15 @@ function BackButton() {
       case '/ticket/seats':
         navigate('/ticket');
         break;
+      case '/ticket/passengers':
+        navigate('/ticket/seats');
+        break;
+      case '/ticket/summary':
+        navigate('/ticket/passengers');
+        break;
+      case '/ticket/payment':
+        navigate('/ticket/summary');
+        break;
       default:
         break;
     }
@@ -28,7 +37,7 @@ function BackButton() {
         Volver
       </button>
       <button
-        className='lg:hidden flex bg-[#D97706] rounded-full items-center pl-3 relative w-11 h-11'
+        className='lg:hidden flex bg-transparent border-[#D97706] border-[1px] text-[#FF5F00] rounded-full items-center pl-3 relative w-11 h-11'
         onClick={handleClick}
       >
         <img src={arrowBack} alt='Volver a pagina previa' />
