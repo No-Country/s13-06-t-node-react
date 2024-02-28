@@ -29,15 +29,43 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
+
+    await queryInterface.createTable('BlockedSeats', {
+      seatId: {
+        allowNull: false,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Seats',
+          key: 'id'
+        }
+      },
+      scheduleId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Schedules',
+          key: 'id'
+        }
+      },
+      date: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      }
+    })
   },
   async down(queryInterface) {
+    await queryInterface.dropTable('BlockedSeats');
     await queryInterface.dropTable('Seats');
   }
+  
 };

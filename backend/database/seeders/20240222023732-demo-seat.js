@@ -19,7 +19,7 @@ module.exports = {
       for (let i = 1; i <= cantSeat[vehicleNum]; i++) {
         seatsData.push({
           number: i,
-          seatPrice: 0, // Puedes asignar un precio específico si es necesario
+          seatPrice: 1000, // Puedes asignar un precio específico si es necesario
           vehicleId: vehicleNum + 1,
           category: category,
           createdAt: new Date(),

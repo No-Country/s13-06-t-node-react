@@ -7,6 +7,8 @@ import { getCurrentDate } from '../../../../utils/dateUtils';
 import { useDispatch } from 'react-redux';
 
 const FormSearchTravels = () => {
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -23,22 +25,44 @@ const FormSearchTravels = () => {
   // Validación del Formulario
   const [formValid, setFormValid] = useState(false);
 
-  // Reset del Autocomplete
-  const [resetInput, setResetInput] = useState(false);
+  const handleOriginChange = (e) => {
+    const value = e.target.value;
+    setOrigin(value);
+    validateInputs(value, destination);
+    setFormData({ ...formData, origin: value });
+  };
+
+  const handleDestinationChange = (e) => {
+    const value = e.target.value;
+    setDestination(value);
+    validateInputs(origin, value);
+    setFormData({ ...formData, destination: value });
+  };
+
+  const validateInputs = (origin, destination) => {
+    const isValidOrigin = cityOptions.includes(origin);
+    const isValidDestination = cityOptions.includes(destination);
+    const areDifferentCities = origin !== destination;
+
+    if (isValidOrigin && isValidDestination && areDifferentCities) {
+      setFormValid(true);
+    } else {
+      setFormValid(false);
+    }
+  };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
+
+    // Actualizar el estado del formulario
     setFormData({
       ...formData,
       [id]: value
     });
 
+    // Actualizar el estado de la fecha de retorno si es necesario
     if (id === 'return_date') {
       setReturnDate(value);
-    }
-
-    if (id === 'destination' || id === 'origin') {
-      setFormValid(formData.destination !== '' && formData.origin !== '');
     }
   };
 
@@ -65,7 +89,6 @@ const FormSearchTravels = () => {
       passengers: 1
     });
     setReturnDate(getCurrentDate());
-    setResetInput(true);
     setFormValid(false);
     dispatch({ type: 'SET_SEAT_QUANTITY', payload: formData.passengers });
   };
@@ -91,10 +114,10 @@ const FormSearchTravels = () => {
             </label>
             <Autocomplete
               id='origin'
-              value={formData.origin}
-              onChange={handleChange}
-              items={cityOptions}
-              resetInput={resetInput}
+              value={origin}
+              onChange={handleOriginChange}
+              options={cityOptions}
+              placeholder='Ciudad de Origen'
             />
           </div>
           <div className='mb-4 lg:ps-4 col-span-2 lg:col-span-1'>
@@ -106,10 +129,10 @@ const FormSearchTravels = () => {
             </label>
             <Autocomplete
               id='destination'
-              value={formData.destination}
-              onChange={handleChange}
-              items={cityOptions}
-              resetInput={resetInput}
+              value={destination}
+              onChange={handleDestinationChange}
+              options={cityOptions}
+              placeholder='Ciudad de Destino'
             />
           </div>
           <div className='mb-4 lg:ps-4 md:w-full box-border'>

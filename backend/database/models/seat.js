@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       Seat.belongsTo(models.Vehicle, {
         as: 'vehicle',
         foreignKey: 'vehicleId',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       });
     }
   }
@@ -39,7 +40,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Seat'
+      modelName: 'Seat',
+      timestamps: false
     }
   );
   return Seat;

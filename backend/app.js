@@ -1,27 +1,28 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cors = require('cors');
-var cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const passport = require('passport');
-var logger = require('morgan');
+const logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const corsOptions = require('./config/cors');
+const { getSwaggerSpec } = require('./config/swagger');
 
 const dotenv = require('dotenv');
 dotenv.config();
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
-var usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users');
 const vehiclesRouter = require('./routes/vehicle');
 const routesRouter = require('./routes/route');
 const schedulesRouter = require('./routes/schedules');
 const terminalRouter = require('./routes/terminal');
+const passengerRouter = require('./routes/passenger');
 const cityRouter = require('./routes/city');
-const { getSwaggerSpec } = require('./config/swagger');
 
-var app = express();
+const app = express();
 
 // Passport middleware
 app.use(passport.initialize());
@@ -52,6 +53,7 @@ app.use('/api/v1/routes', routesRouter);
 app.use('/api/v1/schedules', schedulesRouter);
 app.use('/api/v1/cities', cityRouter);
 app.use('/api/v1/terminals', terminalRouter);
+app.use('/api/v1/passengers', passengerRouter);
 
 // Swagger specification
 const specs = getSwaggerSpec();
