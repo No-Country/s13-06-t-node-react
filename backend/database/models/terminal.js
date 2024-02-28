@@ -55,7 +55,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: 'Terminal'
+      modelName: 'Terminal',
+      timestamps: false
     }
   );
   return Terminal;
