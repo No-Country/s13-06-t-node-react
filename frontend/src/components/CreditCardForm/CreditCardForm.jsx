@@ -139,7 +139,7 @@ function CreditCardForm() {
               onChange={handleCardNumberChange}
               isValid={validateCardNumber()}
             />
-            <div className='flex overflow-hidden w-full'>
+            <div className='flex w-full'>
               <SelectForm
                 options={months}
                 placeholder='MES'
