@@ -44,25 +44,6 @@ const routeSchema = z.object({
   })
 });
 
-function validateRoute(object) {
-  return routeSchema.safeParse(object);
-}
-
-function validateRoutePartial(object) {
-  return routeSchema.partial().safeParse(object);
-}
-// Test validation function
-const result = validateRoute({
-  originId: 3,
-  destinationId: 2,
-  duration: '12:30:00',
-  distance: 700.5,
-  price: 68900.0
-});
-
-console.log(result.error);
-
 module.exports = {
-  validateRoute,
-  validateRoutePartial
+  routeSchema
 };
