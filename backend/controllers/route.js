@@ -103,7 +103,21 @@ module.exports = {
   update: catchAsync(async (req, res) => {
     try {
       const { id } = req.params;
-      const route = req.body;
+      // Obtenemos los datos de la ruta desde el body, no permitimos nuevos atributos o modificar el id.
+      const allowedAttributes = [
+        'originId',
+        'destinationId',
+        'duration',
+        'distance',
+        'price'
+      ];
+      const route = {};
+
+      allowedAttributes.forEach((attribute) => {
+        if (req.body[attribute] !== undefined) {
+          route[attribute] = req.body[attribute];
+        }
+      });
 
       // Actualizamos la ruta
       const updatedRoute = await RouteService.update(id, route);
