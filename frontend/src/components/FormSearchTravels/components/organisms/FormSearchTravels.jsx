@@ -5,8 +5,10 @@ import SearchButton from '../atoms/SearchButton';
 import Autocomplete from '../organisms/Autocomplete';
 import { getCurrentDate } from '../../../../utils/dateUtils';
 import { useDispatch } from 'react-redux';
+import { getCities } from '../../../../services/api';
 
 const FormSearchTravels = () => {
+  const [cityOptions, setCityOptions] = useState([]);
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
   const dispatch = useDispatch();
@@ -70,6 +72,16 @@ const FormSearchTravels = () => {
     if (formData.departure_date) {
       setReturnDate(formData.departure_date);
     }
+    const fetchCities = async () => {
+      try {
+        const cities = await getCities();
+        setCityOptions(cities);
+      } catch (error) {
+        console.error('Error al obtener las ciudades:', error);
+      }
+    };
+
+    fetchCities();
   }, [formData.departure_date]);
 
   const handlePassengersChange = (newQuantity) => {
@@ -92,14 +104,6 @@ const FormSearchTravels = () => {
     setFormValid(false);
     dispatch({ type: 'SET_SEAT_QUANTITY', payload: formData.passengers });
   };
-
-  const cityOptions = [
-    'Buenos Aires',
-    'Córdoba',
-    'Mendoza',
-    'Bariloche',
-    'Salta'
-  ];
 
   return (
     <div className='flex items-center justify-center px-6 md:px-0 lg:-mt-28 sm:-mt-10 -mt-8 py-6 '>
