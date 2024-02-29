@@ -1,0 +1,30 @@
+name: Update DB Migrations
+on:
+  pull_request:
+    paths:
+      - 'database/migrations/*'
+      - 'database/models/*'
+      - 'database/seeds/*'
+
+jobs:
+  update-db-migrations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          rm package-lock.json
+          npm install
+
+      - name: Run Migrations
+        run: |
+          npm run migrate
+          npm run seed
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
