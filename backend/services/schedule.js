@@ -1,5 +1,5 @@
-const { Schedule } = require('../database/models');
-const { Route, Terminal } = require('../database/models');
+const { Schedule, sequelize } = require('../database/models');
+const { Route, Terminal, City } = require('../database/models');
 const { getDayName } = require('../helpers/getDayName');
 
 // Obtener todos los horarios
@@ -15,40 +15,56 @@ const getById = async (id) => {
 
 // Obtener un horario según origen-destino
 const getAvailableSchedules = async (
-  originTerminal,
-  destinationTerminal,
+  originCityName,
+  destinationCityName,
   date
 ) => {
   // Convert date string to a Date object
   const searchDate = new Date(date);
   // Determine the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
   const dayOfWeek = searchDate.getDay();
-  console.log(dayOfWeek);
-  // Get the terminalIds
-  const originTerminalObject = await Terminal.findOne({
-    where: { terminalName: originTerminal }
-  });
-  const destinationTerminalObject = await Terminal.findOne({
-    where: { terminalName: destinationTerminal }
-  });
-
-  const originId = originTerminalObject.id;
-  const destinationId = destinationTerminalObject.id;
-  // Get schedules for a given route and a given day of the week.
-  const schedules = await Schedule.findAll({
+  // Get the terminals for origin city.
+  const originTerminals = await Terminal.findAll({
     include: [
       {
-        model: Route,
-        as: 'route',
+        model: City,
+        as: 'city',
         where: {
           // Filter by origin and destination terminals
-          originId: originId,
-          destinationId: destinationId
+          name: originCityName
         }
       }
-    ],
+    ]
+  });
+  // get the terminals for destination city
+  const destinationTerminals = await Terminal.findAll({
+    include: [
+      {
+        model: City,
+        as: 'city',
+        where: {
+          // Filter by origin and destination terminals
+          name: destinationCityName
+        }
+      }
+    ]
+  });
+
+  // Get all routes with origin and destination terminal IDs
+  const routes = await Route.findAll({
     where: {
-      // Filter by day of the week using helper function
+      originId: originTerminals.map((term) => term.id),
+      destinationId: destinationTerminals.map((term) => term.id)
+    }
+  });
+
+  // Extract route IDs from the found routes
+  const routeIds = routes.map((route) => route.id);
+
+  // Get schedules for the extracted route IDs and given day of the week
+  const schedules = await Schedule.findAll({
+    where: {
+      routeId: routeIds,
       day: getDayName(dayOfWeek)
     }
   });

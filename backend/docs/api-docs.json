@@ -5,10 +5,11 @@
     { "name": "Auth" },
     { "name": "Cities" },
     { "name": "Users" },
+    { "name": "Passengers" },
     { "name": "Vehicles" },
     { "name": "Routes" },
     { "name": "Schedules" },
-    { "name": "Terminal" }
+    { "name": "Terminals" }
   ],
   "paths": {
     "/auth/login": {
@@ -98,6 +99,92 @@
         "security": []
       }
     },
+    "/auth/register": {
+      "post": {
+        "summary": "Resgistro de nuevo usuario",
+        "deprecated": false,
+        "description": "",
+        "operationId": "registerUser",
+        "tags": ["Auth"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Register" },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Usuario creado con éxito!",
+                      "body": {
+                        "user": {
+                          "id": 1,
+                          "dni": "01245420384",
+                          "firstName": "Angel",
+                          "lastName": "Diaz",
+                          "email": "a.diaz@example.com",
+                          "miles": 0,
+                          "role": "USER"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflicto en el servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "fail",
+                      "code": 409,
+                      "message": "El usuario ya existe."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "No se pudo registrar el usuario."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
     "/cities": {
       "get": {
         "summary": "Obtener todas las ciudades",
@@ -122,15 +209,11 @@
                         "cities": [
                           {
                             "id": 1,
-                            "name": "Buenos Aires",
-                            "createdAt": "2024-02-26T17:16:01.354Z",
-                            "updatedAt": "2024-02-26T17:16:01.354Z"
+                            "name": "Buenos Aires"
                           },
                           {
                             "id": 2,
-                            "name": "Córdoba",
-                            "createdAt": "2024-02-26T17:16:01.354Z",
-                            "updatedAt": "2024-02-26T17:16:01.354Z"
+                            "name": "Córdoba"
                           }
                         ]
                       }
@@ -178,9 +261,7 @@
                       "message": "Ciudad creada con éxito!",
                       "body": {
                         "id": 40,
-                        "name": "Palpalá",
-                        "updatedAt": "2024-02-26T19:00:06.865Z",
-                        "createdAt": "2024-02-26T19:00:06.865Z"
+                        "name": "Palpalá"
                       }
                     }
                   }
@@ -271,6 +352,90 @@
                       "status": "error",
                       "code": 500,
                       "message": "Error al obtener los usuarios!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/passengers": {
+      "post": {
+        "summary": "Registro de nuevo pasajero",
+        "deprecated": false,
+        "description": "",
+        "operationId": "registerPassenger",
+        "tags": ["Passengers"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Passenger" },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Pasajero creado con éxito!",
+                      "body": {
+                        "passenger": {
+                          "id": 3,
+                          "dni": "01245420354",
+                          "firstName": "Angel",
+                          "lastName": "Diaz",
+                          "userClientId": 2
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflicto en el servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "fail",
+                      "code": 409,
+                      "message": "El pasajero ya existe."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "No se pudo registrar el pasajero."
                     }
                   }
                 }
@@ -420,92 +585,7 @@
         "security": []
       }
     },
-    "/auth/register": {
-      "post": {
-        "summary": "Resgistro de nuevo usuario",
-        "deprecated": false,
-        "description": "",
-        "operationId": "registerUser",
-        "tags": ["Auth"],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/Register" },
-              "example": ""
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Operación exitosa",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/ApiResponse" },
-                "examples": {
-                  "1": {
-                    "summary": "Success",
-                    "value": {
-                      "status": "success",
-                      "code": 200,
-                      "message": "Usuario creado con éxito!",
-                      "body": {
-                        "user": {
-                          "id": 1,
-                          "dni": "01245420384",
-                          "firstName": "Angel",
-                          "lastName": "Diaz",
-                          "email": "a.diaz@example.com",
-                          "miles": 0,
-                          "role": "USER"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflicto en el servidor",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/ApiResponse" },
-                "examples": {
-                  "1": {
-                    "summary": "Success",
-                    "value": {
-                      "status": "fail",
-                      "code": 409,
-                      "message": "El usuario ya existe."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Error interno del servidor",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/ApiResponse" },
-                "examples": {
-                  "1": {
-                    "summary": "Success",
-                    "value": {
-                      "status": "error",
-                      "code": 500,
-                      "message": "No se pudo registrar el usuario."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": []
-      }
-    },
+
     "/schedules/all": {
       "get": {
         "summary": "GetAllSchedules",
@@ -531,7 +611,7 @@
         "summary": "Obtener todas las terminales",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminal"],
+        "tags": ["Terminals"],
         "parameters": [],
         "responses": {
           "200": {
@@ -667,7 +747,7 @@
         "summary": "Crear nueva terminal",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminal"],
+        "tags": ["Terminals"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -1092,7 +1172,7 @@
         "summary": "Obtener terminal por ID",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminal"],
+        "tags": ["Terminals"],
         "parameters": [
           {
             "name": "id",
@@ -1361,7 +1441,7 @@
         "summary": "Actualizar terminal",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminal"],
+        "tags": ["Terminals"],
         "parameters": [
           {
             "name": "id",
@@ -1538,7 +1618,7 @@
         "summary": "Eliminar terminal",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminal"],
+        "tags": ["Terminals"],
         "parameters": [
           {
             "name": "id",
@@ -1631,6 +1711,19 @@
           "role": { "type": "string", "examples": ["USER"] }
         }
       },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string", "examples": ["usuario@mail.com"] },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "examples": ["C0ntr4s3ñ4s3gur4"]
+          }
+        },
+        "required": ["email", "password"]
+      },
+      "LoginResponse": { "type": "object", "properties": {} },
       "Register": {
         "type": "object",
         "properties": {
@@ -1646,18 +1739,15 @@
         },
         "required": ["dni", "firstName", "lastName", "email", "password"]
       },
-      "LoginResponse": { "type": "object", "properties": {} },
-      "Login": {
+      "Passenger": {
         "type": "object",
         "properties": {
-          "email": { "type": "string", "examples": ["usuario@mail.com"] },
-          "password": {
-            "type": "string",
-            "format": "password",
-            "examples": ["C0ntr4s3ñ4s3gur4"]
-          }
+          "dni": { "type": "string", "examples": ["01245420384"] },
+          "firstName": { "type": "string", "examples": ["Angel"] },
+          "lastName": { "type": "string", "examples": ["Diaz"] },
+          "userClientId": { "type": "integer", "examples": [14] }
         },
-        "required": ["email", "password"]
+        "required": ["dni", "firstName", "lastName", "userClientId"]
       }
     },
     "securitySchemes": {}

@@ -25,12 +25,12 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       // Association whit Seats
-      /* Vehicle.hasMany(models.Seat, {
+      Vehicle.hasMany(models.Seat, {
         foreignKey: 'vehicleId',
         as: 'seats',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
-      }); */
+      });
     }
   }
   Vehicle.init(
@@ -53,7 +53,29 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Vehicle',
-      timestamps: false
+      timestamps: false,
+      hooks: {
+        afterCreate: async (vehicle) => {
+          for (let i = 0; i < vehicle.totalSeats; i++) {
+            try {
+              const newSeat = await sequelize.models.Seat.create({
+                number: i + 1,
+                vehicleId: vehicle.id,
+                category: 'standard',
+                seatPrice: 1000,
+                isAvailble: true,
+                blockedByUser: null
+              });
+              console.log('ASIENTITOOOO', newSeat);
+              if (!newSeat) {
+                throw new Error(`Error al crear el asiento! ${i}`);
+              }
+            } catch (error) {
+              console.log(error.message);
+            }
+          }
+        }
+      }
     }
   );
   return Vehicle;
