@@ -35,6 +35,7 @@ module.exports = {
       // Si se pudo crear el usuario, enviamos la respuesta
       endpointResponse({
         res,
+        status: 'success',
         message: 'Usuario creado con éxito!',
         body: { user: newUser }
       });
