@@ -1,5 +1,11 @@
 const { Router } = require('express');
 const {
+  validatePartialSchema,
+  validateSchema
+} = require('../middlewares/validateSchema');
+const { scheduleSchema } = require('../schemas/scheduleSchema');
+
+const {
   getAll,
   getById,
   getAvailableSchedules,
@@ -16,9 +22,9 @@ router.get('/id/:id', getById);
 
 router.get('/', getAvailableSchedules);
 
-router.post('/', create);
+router.post('/', validateSchema(scheduleSchema), create);
 
-router.put('/:id', update);
+router.put('/:id', validatePartialSchema(scheduleSchema), update);
 
 router.delete('/:id', remove);
 
