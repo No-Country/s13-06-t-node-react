@@ -5,10 +5,14 @@ import StepsLayout from './layouts/StepsLayout.jsx';
 import SeatSelection from './pages/SeatSelection.jsx';
 import TravelSelection from './pages/TravelSelection.jsx';
 import TripReservation from './pages/ticket/TripReservation.jsx';
+// import Register from './pages/auth/Register.jsx';
+import RegisterAlt from './pages/auth/RegisterAlt.jsx';
+import Payment from './pages/ticket/Payment.jsx';
 import UserLayout from './layouts/UserLayout.jsx';
 import MyPurchases from './pages/auth/user/MyPurchases.jsx';
 import UserSettings from './pages/auth/user/UserSettings.jsx';
 import UserTravelDistance from './pages/auth/user/UserTravelDistance.jsx';
+import LoginForm from './components/Login/LoginForm.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +47,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'payment',
-        element: <p>Payment</p>
+        element: <Payment />
       }
     ]
   },
@@ -64,6 +68,14 @@ export const router = createBrowserRouter([
         element: <UserTravelDistance />
       }
     ]
+  },
+  {
+    path: '/register',
+    element: <RegisterAlt />
+  },
+  {
+    path: '/login',
+    element: <LoginForm />
   }
 ]);
 
