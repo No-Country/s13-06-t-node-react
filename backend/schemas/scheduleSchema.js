@@ -11,7 +11,7 @@ const z = require('zod');
 const timeRegex = /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/;
 const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 // Definir restricciones y tipo para cada uno de los elementos del objeto
-const routeSchema = z.object({
+const scheduleSchema = z.object({
   routeId: z
     .number({
       required_error: 'Id de Ruta Requerido',
@@ -56,5 +56,5 @@ const routeSchema = z.object({
 // console.log(result.error)
 
 module.exports = {
-  routeSchema
+  scheduleSchema
 };
