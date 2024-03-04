@@ -2,17 +2,20 @@ import { useState } from 'react';
 import road_image from '../../assets/LoginForm/road_image.jpg';
 import google_logo from '../../assets/LoginForm/google_logo.svg';
 import user_logo from '../../assets/LoginForm/user_logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../services/auth';
 import Toast from '../Seats/Toast';
 
 const LoginForm = () => {
   const [showToast, setShowToast] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [type, setType] = useState('');
+  const [toastMessage, setToastMessage] = useState('');
   const [mailInput, setMailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [wrongMailFormat, setWrongMailFormat] = useState(false);
   const [wrongPasswordFormat, setWrongPasswordFormat] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (event, inputType) => {
     const inputValue = event.target.value;
@@ -59,10 +62,19 @@ const LoginForm = () => {
 
       console.log('Información del usuario:', user); // HAY QUE ENVIAR ESTO A UN CONTEXT PARA TENER LA INFO
 
+      setShowToast(true);
+      setType('success');
+      setToastMessage('Usuario logeado. Volveras al inicio.');
+
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+
       localStorage.setItem('token', token);
     } catch (error) {
       setShowToast(true);
-      setErrorMessage(error.message);
+      setType('error');
+      setToastMessage(error.message);
     }
   };
 
@@ -161,8 +173,8 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
-      <Toast showToast={showToast} setShowToast={setShowToast} type='error'>
-        <span>{errorMessage}</span>
+      <Toast showToast={showToast} setShowToast={setShowToast} type={type}>
+        <span>{toastMessage}</span>
       </Toast>
     </div>
   );
