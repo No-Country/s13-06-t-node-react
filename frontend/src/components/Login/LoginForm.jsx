@@ -3,6 +3,7 @@ import road_image from '../../assets/LoginForm/road_image.jpg';
 import google_logo from '../../assets/LoginForm/google_logo.svg';
 import user_logo from '../../assets/LoginForm/user_logo.svg';
 import { Link } from 'react-router-dom';
+import { loginUser } from '../../services/auth';
 
 const LoginForm = () => {
   const [mailInput, setMailInput] = useState('');
@@ -43,30 +44,11 @@ const LoginForm = () => {
   };
 
   const handleLogin = async () => {
-    try {
-      const response = await fetch('URL_DEL_ENDPOINT', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          mail: mailInput,
-          password: passwordInput
-        })
-      });
-
-      // Verificar si la solicitud fue exitosa (código de estado 200)
-      if (response.ok) {
-        // Extraer los datos de la respuesta
-        const data = await response.json();
-
-        console.log('Respuesta del servidor:', data);
-      } else {
-        console.error('Error al realizar la solicitud:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
+    const credentials = {
+      email: mailInput,
+      password: passwordInput
+    };
+    loginUser(credentials);
   };
 
   return (
