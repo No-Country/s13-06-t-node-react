@@ -4,6 +4,7 @@ on:
     types: [closed]
     paths:
       - 'backend/**'
+      - '.github/workflows/deploy_backend.yml'
 
 jobs:
   deploy-backend:
