@@ -21,6 +21,7 @@ const schedulesRouter = require('./routes/schedules');
 const terminalRouter = require('./routes/terminal');
 const passengerRouter = require('./routes/passenger');
 const cityRouter = require('./routes/city');
+const amenitiesRouter = require('./routes/amenity');
 
 const app = express();
 
@@ -54,6 +55,7 @@ app.use('/api/v1/schedules', schedulesRouter);
 app.use('/api/v1/cities', cityRouter);
 app.use('/api/v1/terminals', terminalRouter);
 app.use('/api/v1/passengers', passengerRouter);
+app.use('/api/v1/amenities', amenitiesRouter);
 
 // Swagger specification
 const specs = getSwaggerSpec();

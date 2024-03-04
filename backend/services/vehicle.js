@@ -1,4 +1,10 @@
-const { Vehicle, VehicleAmenity, Amenity } = require('../database/models');
+const {
+  Vehicle,
+  VehicleAmenity,
+  Amenity,
+  Seat,
+  Schedule
+} = require('../database/models');
 
 // Formated the return of vehicles whit amenities
 const formatVehicleData = (vehicle) => ({
@@ -139,6 +145,8 @@ const deleteVehicleAmenity = async (vehicleId) => {
   const vehicle = await Vehicle.findByPk(vehicleId);
   if (vehicle) {
     await VehicleAmenity.destroy({ where: { vehicleId } });
+    await Seat.destroy({ where: { vehicleId } });
+    await Schedule.destroy({ where: { vehicleId } });
     await vehicle.destroy();
   }
   return;

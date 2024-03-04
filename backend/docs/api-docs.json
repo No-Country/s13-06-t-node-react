@@ -1,12 +1,13 @@
 {
   "openapi": "3.1.0",
-  "info": { "title": "ticket-bus1", "description": "", "version": "1.0.0" },
+  "info": { "title": "ticket-bus", "description": "", "version": "1.0.0" },
   "tags": [
     { "name": "Auth" },
     { "name": "Cities" },
     { "name": "Users" },
     { "name": "Passengers" },
     { "name": "Vehicles" },
+    { "name": "Amenities" },
     { "name": "Routes" },
     { "name": "Schedules" },
     { "name": "Terminals" }
@@ -18,7 +19,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "loginUser",
-        "tags": ["Auth"],
+        "tags": ["Auth", "Auth"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -99,98 +100,12 @@
         "security": []
       }
     },
-    "/auth/register": {
-      "post": {
-        "summary": "Resgistro de nuevo usuario",
-        "deprecated": false,
-        "description": "",
-        "operationId": "registerUser",
-        "tags": ["Auth"],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/Register" },
-              "example": ""
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Operación exitosa",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/ApiResponse" },
-                "examples": {
-                  "1": {
-                    "summary": "Success",
-                    "value": {
-                      "status": "success",
-                      "code": 200,
-                      "message": "Usuario creado con éxito!",
-                      "body": {
-                        "user": {
-                          "id": 1,
-                          "dni": "01245420384",
-                          "firstName": "Angel",
-                          "lastName": "Diaz",
-                          "email": "a.diaz@example.com",
-                          "miles": 0,
-                          "role": "USER"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflicto en el servidor",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/ApiResponse" },
-                "examples": {
-                  "1": {
-                    "summary": "Success",
-                    "value": {
-                      "status": "fail",
-                      "code": 409,
-                      "message": "El usuario ya existe."
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Error interno del servidor",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/ApiResponse" },
-                "examples": {
-                  "1": {
-                    "summary": "Success",
-                    "value": {
-                      "status": "error",
-                      "code": 500,
-                      "message": "No se pudo registrar el usuario."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": []
-      }
-    },
     "/cities": {
       "get": {
         "summary": "Obtener todas las ciudades",
         "deprecated": false,
         "description": "",
-        "tags": ["Cities"],
+        "tags": ["Cities", "Cities"],
         "parameters": [],
         "responses": {
           "200": {
@@ -207,14 +122,8 @@
                       "message": "Ciudades obtenidas con éxito!",
                       "body": {
                         "cities": [
-                          {
-                            "id": 1,
-                            "name": "Buenos Aires"
-                          },
-                          {
-                            "id": 2,
-                            "name": "Córdoba"
-                          }
+                          { "id": 1, "name": "Buenos Aires" },
+                          { "id": 2, "name": "Córdoba" }
                         ]
                       }
                     }
@@ -230,7 +139,7 @@
         "summary": "Crear ciudad",
         "deprecated": false,
         "description": "",
-        "tags": ["Cities"],
+        "tags": ["Cities", "Cities"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -259,10 +168,7 @@
                       "status": "success",
                       "code": 200,
                       "message": "Ciudad creada con éxito!",
-                      "body": {
-                        "id": 40,
-                        "name": "Palpalá"
-                      }
+                      "body": { "id": 40, "name": "Palpalá" }
                     }
                   }
                 }
@@ -297,7 +203,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "getAllUsers",
-        "tags": ["Users"],
+        "tags": ["Users", "Users"],
         "parameters": [],
         "responses": {
           "200": {
@@ -368,7 +274,7 @@
         "deprecated": false,
         "description": "",
         "operationId": "registerPassenger",
-        "tags": ["Passengers"],
+        "tags": ["Passengers", "Passengers"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -448,11 +354,11 @@
     },
     "/vehicles": {
       "get": {
-        "summary": "Obtener todos los vehiculos (buses) y sus amenities (servicios)",
+        "summary": "Obtener todos los vehiculos y sus amenities",
         "deprecated": false,
         "description": "",
         "operationId": "getVehiclesAmenities",
-        "tags": ["Vehicles"],
+        "tags": ["Vehicles", "Vehicles"],
         "parameters": [],
         "responses": {
           "200": {
@@ -522,7 +428,7 @@
         "summary": "GetAllRoutes",
         "deprecated": false,
         "description": "",
-        "tags": ["Routes"],
+        "tags": ["Routes", "Routes"],
         "parameters": [],
         "responses": {
           "200": {
@@ -540,7 +446,7 @@
         "summary": "CreateNewRoute",
         "deprecated": false,
         "description": "",
-        "tags": ["Routes"],
+        "tags": ["Routes", "Routes"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -585,13 +491,12 @@
         "security": []
       }
     },
-
     "/schedules/all": {
       "get": {
         "summary": "GetAllSchedules",
         "deprecated": false,
         "description": "",
-        "tags": ["Schedules"],
+        "tags": ["Schedules", "Schedules"],
         "parameters": [],
         "responses": {
           "200": {
@@ -611,7 +516,7 @@
         "summary": "Obtener todas las terminales",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminals"],
+        "tags": ["Terminals", "Terminals"],
         "parameters": [],
         "responses": {
           "200": {
@@ -747,7 +652,7 @@
         "summary": "Crear nueva terminal",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminals"],
+        "tags": ["Terminals", "Terminals"],
         "parameters": [],
         "requestBody": {
           "content": {
@@ -886,12 +791,421 @@
         "security": []
       }
     },
+    "/auth/register": {
+      "post": {
+        "summary": "Resgistro de nuevo usuario",
+        "deprecated": false,
+        "description": "",
+        "operationId": "registerUser",
+        "tags": ["Auth", "Auth"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/Register" },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Usuario creado con éxito!",
+                      "body": {
+                        "user": {
+                          "id": 1,
+                          "dni": "01245420384",
+                          "firstName": "Angel",
+                          "lastName": "Diaz",
+                          "email": "a.diaz@example.com",
+                          "miles": 0,
+                          "role": "USER"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflicto en el servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "fail",
+                      "code": 409,
+                      "message": "El usuario ya existe."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "No se pudo registrar el usuario."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/schedules": {
+      "get": {
+        "summary": "GetAvailableSchedules",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Schedules", "Schedules"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": {} }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "CreateNewSchedule",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Schedules", "Schedules"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "originId": { "type": "integer" },
+                  "destinationId": { "type": "integer" },
+                  "duration": { "type": "string" },
+                  "distance": { "type": "string" },
+                  "price": { "type": "string" }
+                },
+                "required": [
+                  "originId",
+                  "destinationId",
+                  "duration",
+                  "distance",
+                  "price"
+                ]
+              },
+              "example": {
+                "originId": 1,
+                "destinationId": 2,
+                "duration": "09:15:00",
+                "distance": "700.00",
+                "price": "68900.00"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": {} }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/vehicles/id/{id}": {
+      "get": {
+        "summary": "Obtener un vehiculos y sus amenities",
+        "deprecated": false,
+        "description": "",
+        "operationId": "getVehicleAmenityById",
+        "tags": ["Vehicles", "Vehicles"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de Vehiculos",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operacion exitosa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "number": { "type": "integer" },
+                        "plate": { "type": "string" },
+                        "totalSeats": { "type": "integer" },
+                        "amenities": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "number",
+                        "plate",
+                        "totalSeats",
+                        "amenities"
+                      ]
+                    }
+                  },
+                  "required": ["status", "code", "message", "body"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Vehiculo obtenido con éxito!",
+                      "body": {
+                        "id": 1,
+                        "number": 1,
+                        "plate": "QRST90",
+                        "totalSeats": 60,
+                        "amenities": [
+                          "Cargador USB",
+                          "WiFi",
+                          "Aire Acondicionado"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "No se encontro ningún vehiculo"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/amenities/": {
+      "get": {
+        "summary": "Obtener todos los servicios",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Amenities", "Amenities"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "amenities": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": { "type": "integer" },
+                              "name": { "type": "string" }
+                            },
+                            "required": ["id", "name"]
+                          }
+                        }
+                      },
+                      "required": ["amenities"]
+                    }
+                  },
+                  "required": ["status", "code", "message", "body"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Servicios obtenidos con éxito!",
+                      "body": {
+                        "amenities": [
+                          { "id": 1, "name": "Cargador USB" },
+                          { "id": 2, "name": "TV" },
+                          { "id": 3, "name": "Comida" },
+                          { "id": 4, "name": "WiFi" },
+                          { "id": 5, "name": "Aire Acondicionado" }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Crear nuevo servicio",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Amenities", "Amenities"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" } },
+                "required": ["name"]
+              },
+              "example": { "name": "Agua premium" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "amenity": {
+                          "type": "object",
+                          "properties": { "name": { "type": "string" } },
+                          "required": ["name"]
+                        }
+                      },
+                      "required": ["amenity"]
+                    }
+                  },
+                  "required": ["status", "code", "message", "body"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Servicio creado con éxito!",
+                      "body": { "amenity": { "name": "Agua premium" } }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "fail",
+                      "code": 409,
+                      "message": "El servicio ya existe!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
     "/cities/id/{id}": {
       "get": {
         "summary": "Obtener ciudad por ID",
         "deprecated": false,
         "description": "",
-        "tags": ["Cities"],
+        "tags": ["Cities", "Cities"],
         "parameters": [
           {
             "name": "id",
@@ -949,31 +1263,22 @@
         "security": []
       }
     },
-    "/schedules": {
-      "get": {
-        "summary": "GetAvailableSchedules",
+    "/routes/{id}": {
+      "put": {
+        "summary": "UpdateRouteById",
         "deprecated": false,
         "description": "",
-        "tags": ["Schedules"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": { "type": "object", "properties": {} }
-              }
-            }
+        "tags": ["Routes", "Routes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "5",
+            "schema": { "type": "integer" }
           }
-        },
-        "security": []
-      },
-      "post": {
-        "summary": "CreateNewSchedule",
-        "deprecated": false,
-        "description": "",
-        "tags": ["Schedules"],
-        "parameters": [],
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -997,8 +1302,8 @@
               "example": {
                 "originId": 1,
                 "destinationId": 2,
-                "duration": "09:15:00",
-                "distance": "700.00",
+                "duration": "22:15:00",
+                "distance": "750.00",
                 "price": "68900.00"
               }
             }
@@ -1015,6 +1320,130 @@
           }
         },
         "security": []
+      },
+      "delete": {
+        "summary": "DeleteRouteById",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Routes", "Routes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "5",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": {} }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/terminals/id/{id}": {
+      "get": {
+        "summary": "Obtener terminal por ID",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Terminals", "Terminals"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "lat": { "type": "number" },
+                        "lon": { "type": "number" },
+                        "cityId": { "type": "integer" },
+                        "terminalName": { "type": "string" },
+                        "terminalCode": { "type": "integer" },
+                        "createdAt": { "type": "string" },
+                        "updatedAt": { "type": "string" },
+                        "city": {
+                          "type": "object",
+                          "properties": {
+                            "id": { "type": "integer" },
+                            "name": { "type": "string" },
+                            "createdAt": { "type": "string" },
+                            "updatedAt": { "type": "string" }
+                          },
+                          "required": ["id", "name", "createdAt", "updatedAt"]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "lat",
+                        "lon",
+                        "cityId",
+                        "terminalName",
+                        "terminalCode",
+                        "createdAt",
+                        "updatedAt",
+                        "city"
+                      ]
+                    }
+                  },
+                  "required": ["status", "code", "message", "body"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Terminal obtenida con éxito!",
+                      "body": {
+                        "id": 1,
+                        "lat": -34.586038978354786,
+                        "lon": -58.373904326868484,
+                        "cityId": 1,
+                        "terminalName": "Retiro",
+                        "terminalCode": 101,
+                        "createdAt": "2024-02-26T17:16:01.397Z",
+                        "updatedAt": "2024-02-26T17:16:01.397Z",
+                        "city": {
+                          "id": 1,
+                          "name": "Buenos Aires",
+                          "createdAt": "2024-02-26T17:16:01.354Z",
+                          "updatedAt": "2024-02-26T19:18:30.800Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
       }
     },
     "/cities/{id}": {
@@ -1022,7 +1451,7 @@
         "summary": "Actualizar ciudad",
         "deprecated": false,
         "description": "",
-        "tags": ["Cities"],
+        "tags": ["Cities", "Cities"],
         "parameters": [
           {
             "name": "id",
@@ -1115,7 +1544,7 @@
         "summary": "Eliminar ciudad",
         "deprecated": false,
         "description": "",
-        "tags": ["Cities"],
+        "tags": ["Cities", "Cities"],
         "parameters": [
           {
             "name": "id",
@@ -1167,195 +1596,12 @@
         "security": []
       }
     },
-    "/terminals/id/{id}": {
-      "get": {
-        "summary": "Obtener terminal por ID",
-        "deprecated": false,
-        "description": "",
-        "tags": ["Terminals"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "example": "1",
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string" },
-                    "code": { "type": "integer" },
-                    "message": { "type": "string" },
-                    "body": {
-                      "type": "object",
-                      "properties": {
-                        "id": { "type": "integer" },
-                        "lat": { "type": "number" },
-                        "lon": { "type": "number" },
-                        "cityId": { "type": "integer" },
-                        "terminalName": { "type": "string" },
-                        "terminalCode": { "type": "integer" },
-                        "createdAt": { "type": "string" },
-                        "updatedAt": { "type": "string" },
-                        "city": {
-                          "type": "object",
-                          "properties": {
-                            "id": { "type": "integer" },
-                            "name": { "type": "string" },
-                            "createdAt": { "type": "string" },
-                            "updatedAt": { "type": "string" }
-                          },
-                          "required": ["id", "name", "createdAt", "updatedAt"]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "lat",
-                        "lon",
-                        "cityId",
-                        "terminalName",
-                        "terminalCode",
-                        "createdAt",
-                        "updatedAt",
-                        "city"
-                      ]
-                    }
-                  },
-                  "required": ["status", "code", "message", "body"]
-                },
-                "examples": {
-                  "1": {
-                    "summary": "Success",
-                    "value": {
-                      "status": "success",
-                      "code": 200,
-                      "message": "Terminal obtenida con éxito!",
-                      "body": {
-                        "id": 1,
-                        "lat": -34.586038978354786,
-                        "lon": -58.373904326868484,
-                        "cityId": 1,
-                        "terminalName": "Retiro",
-                        "terminalCode": 101,
-                        "createdAt": "2024-02-26T17:16:01.397Z",
-                        "updatedAt": "2024-02-26T17:16:01.397Z",
-                        "city": {
-                          "id": 1,
-                          "name": "Buenos Aires",
-                          "createdAt": "2024-02-26T17:16:01.354Z",
-                          "updatedAt": "2024-02-26T19:18:30.800Z"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": []
-      }
-    },
-    "/routes/{id}": {
-      "put": {
-        "summary": "UpdateRouteById",
-        "deprecated": false,
-        "description": "",
-        "tags": ["Routes"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "example": "5",
-            "schema": { "type": "integer" }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "originId": { "type": "integer" },
-                  "destinationId": { "type": "integer" },
-                  "duration": { "type": "string" },
-                  "distance": { "type": "string" },
-                  "price": { "type": "string" }
-                },
-                "required": [
-                  "originId",
-                  "destinationId",
-                  "duration",
-                  "distance",
-                  "price"
-                ]
-              },
-              "example": {
-                "originId": 1,
-                "destinationId": 2,
-                "duration": "22:15:00",
-                "distance": "750.00",
-                "price": "68900.00"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": { "type": "object", "properties": {} }
-              }
-            }
-          }
-        },
-        "security": []
-      },
-      "delete": {
-        "summary": "DeleteRouteById",
-        "deprecated": false,
-        "description": "",
-        "tags": ["Routes"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "required": true,
-            "example": "5",
-            "schema": { "type": "integer" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": { "type": "object", "properties": {} }
-              }
-            }
-          }
-        },
-        "security": []
-      }
-    },
     "/schedules/{id}": {
       "put": {
         "summary": "UpdateScheduleById",
         "deprecated": false,
         "description": "",
-        "tags": ["Schedules"],
+        "tags": ["Schedules", "Schedules"],
         "parameters": [
           {
             "name": "id",
@@ -1412,7 +1658,7 @@
         "summary": "DeleteScheduleById",
         "deprecated": false,
         "description": "",
-        "tags": ["Schedules"],
+        "tags": ["Schedules", "Schedules"],
         "parameters": [
           {
             "name": "id",
@@ -1441,7 +1687,7 @@
         "summary": "Actualizar terminal",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminals"],
+        "tags": ["Terminals", "Terminals"],
         "parameters": [
           {
             "name": "id",
@@ -1618,7 +1864,7 @@
         "summary": "Eliminar terminal",
         "deprecated": false,
         "description": "",
-        "tags": ["Terminals"],
+        "tags": ["Terminals", "Terminals"],
         "parameters": [
           {
             "name": "id",
@@ -1685,45 +1931,576 @@
         },
         "security": []
       }
+    },
+    "/amenities/id/{id}": {
+      "get": {
+        "summary": "Obtener servicio por ID",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Amenities", "Amenities"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "amenity": {
+                          "type": "object",
+                          "properties": {
+                            "id": { "type": "integer" },
+                            "name": { "type": "string" }
+                          },
+                          "required": ["id", "name"]
+                        }
+                      },
+                      "required": ["amenity"]
+                    }
+                  },
+                  "required": ["status", "code", "message", "body"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Servicio obtenido con éxito!",
+                      "body": { "amenity": { "id": 1, "name": "Cargador USB" } }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "No se pudo obtener el servicio!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/vehicles/": {
+      "post": {
+        "summary": "Crear nuevo vehiculo",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Vehicles", "Vehicles"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "number": { "type": "integer" },
+                  "plate": { "type": "string" },
+                  "totalSeats": { "type": "integer" },
+                  "amenities": {
+                    "type": "array",
+                    "items": { "type": "integer" }
+                  }
+                },
+                "required": ["number", "plate", "totalSeats", "amenities"]
+              },
+              "example": {
+                "number": 48,
+                "plate": "pqrs84",
+                "totalSeats": 40,
+                "amenities": [1, 3, 5]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "integer" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "number": { "type": "integer" },
+                        "plate": { "type": "string" },
+                        "totalSeats": { "type": "integer" }
+                      },
+                      "required": ["id", "number", "plate", "totalSeats"]
+                    }
+                  },
+                  "required": ["status", "code", "message", "body"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": 201,
+                      "code": 200,
+                      "message": "Vehiculo añadido con éxito!",
+                      "body": {
+                        "id": 21,
+                        "number": 21,
+                        "plate": "pqrs84",
+                        "totalSeats": 40
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "fail",
+                      "code": 409,
+                      "message": "El vehiculo ya existe!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/vehicles/{id}": {
+      "put": {
+        "summary": "Actualizar vehiculo",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Vehicles", "Vehicles"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del vehiculo",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "number": { "type": "integer" },
+                  "plate": { "type": "string" },
+                  "totalSeats": { "type": "integer" },
+                  "amenities": {
+                    "type": "array",
+                    "items": { "type": "integer", "description": "ID amenity" }
+                  }
+                },
+                "required": ["number", "plate", "totalSeats", "amenities"]
+              },
+              "example": "{\n  \"number\": 22,\n  \"plate\": \"llgg26\",\n  \"totalSeats\": 40,\n  \"amenities\": [1, 2, 3]\n}f"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "number": { "type": "integer" },
+                    "plate": { "type": "string" },
+                    "totalSeats": { "type": "integer" },
+                    "amenities": {
+                      "type": "array",
+                      "items": { "type": "integer" }
+                    },
+                    "status": { "type": "integer" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "integer" },
+                        "number": { "type": "integer" },
+                        "plate": { "type": "string" },
+                        "totalSeats": { "type": "integer" },
+                        "amenities": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "number",
+                        "plate",
+                        "totalSeats",
+                        "amenities"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "code",
+                    "message",
+                    "body",
+                    "number",
+                    "plate",
+                    "totalSeats",
+                    "amenities"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": 200,
+                      "code": 200,
+                      "message": "Vehículo actualizado exitosamente!",
+                      "body": {
+                        "id": 20,
+                        "number": 20,
+                        "plate": "LLGG26",
+                        "totalSeats": 40,
+                        "amenities": ["Cargador USB", "TV", "WiFi"]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record Not Found",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": {} },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "El vehiculo no existe!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Eliminar vehiculo",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Vehicles", "Vehicles"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID vehicle",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Vehiculo eliminado con éxito!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "El vehiculo no existe!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/amenities/{id}": {
+      "put": {
+        "summary": "Actualizar servicio",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Amenities", "Amenities"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID de servicio",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": { "name": { "type": "string" } },
+                "required": ["name"]
+              },
+              "example": { "name": "Hielo Premium" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" },
+                    "body": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          { "type": "integer" },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": { "type": "integer" },
+                              "name": { "type": "string" }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": ["status", "code", "message", "body", "name"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Servicio actualizado con éxito!",
+                      "body": [1, [{ "id": 8, "name": "Hielo Premium" }]]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record Not Found",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": {} },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "El servicio no éxiste!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "Eliminar servicio",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Amenities", "Amenities"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del servicio",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Servicio eliminado con éxito!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "code": { "type": "integer" },
+                    "message": { "type": "string" }
+                  },
+                  "required": ["status", "code", "message"]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "El servicio no éxiste!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
     }
   },
   "components": {
     "schemas": {
-      "ApiResponse": {
+      "Passenger": {
         "type": "object",
         "properties": {
-          "status": { "type": "string" },
-          "code": { "type": "integer" },
-          "message": { "type": "string" },
-          "body": { "type": "object", "properties": {} }
-        },
-        "required": ["status", "code", "message"]
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "integer", "examples": [14] },
           "dni": { "type": "string", "examples": ["01245420384"] },
           "firstName": { "type": "string", "examples": ["Angel"] },
           "lastName": { "type": "string", "examples": ["Diaz"] },
-          "email": { "type": "string", "examples": ["a.diaz@example.com"] },
-          "miles": { "type": "integer", "examples": [0] },
-          "role": { "type": "string", "examples": ["USER"] }
-        }
-      },
-      "Login": {
-        "type": "object",
-        "properties": {
-          "email": { "type": "string", "examples": ["usuario@mail.com"] },
-          "password": {
-            "type": "string",
-            "format": "password",
-            "examples": ["C0ntr4s3ñ4s3gur4"]
-          }
+          "userClientId": { "type": "integer", "examples": [14] }
         },
-        "required": ["email", "password"]
+        "required": ["dni", "firstName", "lastName", "userClientId"]
       },
-      "LoginResponse": { "type": "object", "properties": {} },
       "Register": {
         "type": "object",
         "properties": {
@@ -1739,20 +2516,49 @@
         },
         "required": ["dni", "firstName", "lastName", "email", "password"]
       },
-      "Passenger": {
+      "LoginResponse": { "type": "object", "properties": {} },
+      "Login": {
         "type": "object",
         "properties": {
+          "email": { "type": "string", "examples": ["usuario@mail.com"] },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "examples": ["C0ntr4s3ñ4s3gur4"]
+          }
+        },
+        "required": ["email", "password"]
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer", "examples": [14] },
           "dni": { "type": "string", "examples": ["01245420384"] },
           "firstName": { "type": "string", "examples": ["Angel"] },
           "lastName": { "type": "string", "examples": ["Diaz"] },
-          "userClientId": { "type": "integer", "examples": [14] }
+          "email": { "type": "string", "examples": ["a.diaz@example.com"] },
+          "miles": { "type": "integer", "examples": [0] },
+          "role": { "type": "string", "examples": ["USER"] }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "code": { "type": "integer" },
+          "message": { "type": "string" },
+          "body": { "type": "object", "properties": {} }
         },
-        "required": ["dni", "firstName", "lastName", "userClientId"]
+        "required": ["status", "code", "message"]
       }
     },
     "securitySchemes": {}
   },
   "servers": [
-    { "url": "http://localhost:3000/api/v1", "description": "Develop Env" }
+    { "url": "http://localhost:3000/api/v1", "description": "Develop Env" },
+    {
+      "url": "https://ticket-bus-api-dev.up.railway.app/api/v1",
+      "description": "Prod Env"
+    }
   ]
 }
