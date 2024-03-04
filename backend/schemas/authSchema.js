@@ -25,7 +25,6 @@ const loginSchema = z.object({
 //     "password": "123456",
 //     "firstName": "User",
 //     "lastName": "Example",
-//     "dni": "12345678"
 // }
 
 const registerSchema = z.object({
@@ -50,14 +49,7 @@ const registerSchema = z.object({
   lastName: z.string({
     required_error: 'Apellido Requerido',
     invalid_type_error: 'Apellido debe ser de tipo String'
-  }),
-  dni: z
-    .string({
-      required_error: 'DNI Requerido',
-      invalid_type_error: 'DNI debe ser de tipo String'
-    })
-    .min(7, { message: 'DNI inválido' })
-    .max(15, { message: 'DNI inválido' })
+  })
 });
 
 module.exports = {
