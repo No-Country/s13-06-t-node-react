@@ -9,21 +9,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      passengerId: {
+      userClientId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
-          model: 'Passengers',
+          model: 'Users',
           key: 'id'
         }
       },
-      seatId: {
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      totalSeats: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Seats',
-          key: 'id'
-        }
+        allowNull: false
       },
       totalPrice: {
         type: Sequelize.FLOAT,

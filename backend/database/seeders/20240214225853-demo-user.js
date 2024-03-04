@@ -8,7 +8,6 @@ module.exports = {
       'Users',
       [
         {
-          dni: '01212120384',
           firstName: 'Admin',
           lastName: 'Admin',
           email: 'admin@example.com',
@@ -17,7 +16,6 @@ module.exports = {
           role: 'ADMIN'
         },
         {
-          dni: '01212120385',
           firstName: 'User',
           lastName: 'User',
           email: 'usuario@example.com',

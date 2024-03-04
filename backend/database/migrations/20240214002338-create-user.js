@@ -9,11 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      dni: {
-        type: Sequelize.STRING(15),
-        allowNull: false,
-        unique: true
-      },
       firstName: {
         type: Sequelize.STRING,
         allowNull: false

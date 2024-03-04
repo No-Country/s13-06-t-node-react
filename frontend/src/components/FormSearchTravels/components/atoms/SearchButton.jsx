@@ -5,10 +5,10 @@ function SearchButton({ onClick, label, url, disabled }) {
   return (
     <Link
       to={disabled ? '/' : url}
-      className={`block rounded-md px-8 py-3 w-full text-center text-decoration-none ${
+      className={`block rounded-md px-8 py-3 w-full text-center text-white font-semibold text-decoration-none ${
         disabled
-          ? 'bg-[#93f3b2] cursor-not-allowed'
-          : 'bg-[#27C277] text-white cursor-pointer'
+          ? 'bg-btn-orange cursor-not-allowed'
+          : 'bg-btn-orange text-white cursor-pointer'
       }`}
       onClick={disabled ? undefined : onClick}
     >

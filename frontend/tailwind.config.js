@@ -25,7 +25,9 @@ export default {
         'midnight-slate': '#486284',
         'selected-seat': '#FF5F00',
         'occupied-seat': '#808393',
-        'available-seat': '#FFCC00'
+        'available-seat': '#FFCC00',
+        'color-dark': '#1A202C',
+        'btn-orange': '#D97706'
       }
     }
   },

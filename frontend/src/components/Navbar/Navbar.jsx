@@ -4,6 +4,7 @@ import { NavigationLinks } from './NavigationLinks';
 import { UserActions } from './UserActions';
 import person from '../../assets/Navbar/person.svg';
 import hamburgerBar from '../../assets/Navbar/hamburgerbar.svg';
+import './Navbar.css';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ export const Navbar = () => {
   };
   return (
     // TODO: el boton Mi Cuenta se rompe de 768px a 910px, solucionar
-    <nav className='bg-[#486284] md:bg-[#D3DCE7] h-16 md:min-h-28 border-0 md:border-2 md:border-[#697f9c]'>
+    <nav className='bg-[#486284] md:bg-[#D3DCE7] h-16 relative md:min-h-28 border-0 md:border-2 md:border-[#697f9c] text-nowrap'>
       <div className='h-full mx-6 md:mx-14 flex items-center'>
         <Logo />
         <button
@@ -26,7 +27,8 @@ export const Navbar = () => {
           <img src={person} className='' />
         </button>
         <div
-          className={`md:flex ${isMenuOpen ? 'flex' : 'hidden'} md:items-center md:justify-end flex-col md:flex-row`}
+          id='navbar-items'
+          className={`md:flex ${isMenuOpen ? 'flex' : 'hidden'} md:items-center md:justify-end flex-col md:flex-row overflow-hidden flex-shrink flex-grow flex-`}
         >
           {!isMenuOpen ? (
             <>

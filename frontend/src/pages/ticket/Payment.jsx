@@ -11,6 +11,8 @@ function Payment() {
         <div className='grid lg:grid-cols-4 md:grid-cols-5 sm:grid-cols-5 grid-cols-1 h-full lg:gap-4 gap-2 mx-auto relative'>
           {/* Columna 1 */}
           <div className='lg:col-span-1 md:col-span-2 sm:col-span-2 col-span-1 relative order-2 sm:order-1'>
+            <div className='mb-3 md:h-16'></div>
+
             <TripDetailsCard
               title='Viaje de Ida'
               startLocation='Buenos Aires'
@@ -43,6 +45,8 @@ function Payment() {
 
           {/* Columna 3 */}
           <div className='md:col-span-1 sm:col-span-1 col-span-1 relative order-last'>
+            <div className='mb-3 md:h-16'></div>
+
             <Timer />
           </div>
         </div>

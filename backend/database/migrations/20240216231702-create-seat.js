@@ -62,6 +62,15 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+    // Si pasan 5 minutos y el usuario no ha pagado, se libera el asiento
+    await queryInterface.sequelize.query(`
+      CREATE OR REPLACE FUNCTION remove_blocked_seats() RETURNS TRIGGER AS $$
+      BEGIN
+        DELETE FROM "BlockedSeats" WHERE date < NOW() - INTERVAL '5 minutes';
+        RETURN NEW;
+      END;
+      $$ LANGUAGE plpgsql;
+    `);
   },
   async down(queryInterface) {
     await queryInterface.dropTable('BlockedSeats');

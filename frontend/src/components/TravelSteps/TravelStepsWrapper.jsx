@@ -7,18 +7,17 @@ import TravelStepsHeader from './TravelStepsHeader.jsx';
 
 function TravelStepsWrapper() {
   return (
-    // TODO: cambiar color de text a variable cuando tengamos listos los colores
-    <section className='my-16 text-[#1A202C] max-w-[1440px] mx-auto'>
+    <section className='my-16 text-color-dark max-w-[1440px] mx-auto'>
       <TravelStepsHeader
         title='Viaja en simples pasos (!)'
-        description='        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et'
+        description='La forma más fácil de comprar pasajes online.
+        '
       />
       <div className='flex text-center justify-between px-20 relative'>
         <TravelStepsCard
           logo={DestinoLogo}
-          title='Destino -----------'
-          description='Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices, orci vitae convallis mattis.'
+          title='Selecciona la ciudad'
+          description='Elige el lugar de origen y destino para tu viaje en autobús.'
         />
 
         <img
@@ -28,8 +27,8 @@ function TravelStepsWrapper() {
 
         <TravelStepsCard
           logo={ServicioLogo}
-          title='Selecciona el servicio'
-          description='Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices, orci vitae convallis mattis.'
+          title='Elige el servicio y horario'
+          description='Selecciona tus horarios y asientos deseados.'
         />
 
         <img
@@ -40,8 +39,8 @@ function TravelStepsWrapper() {
 
         <TravelStepsCard
           logo={ArriboLogo}
-          title='Arribo -----------'
-          description='Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit. Maecenas ultrices, orci vitae convallis mattis.'
+          title='Recibi tu  boleto digital'
+          description='Recibe la confirmación de tu boleto y los detalles del viaje.'
         />
       </div>
     </section>

@@ -9,14 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Reservation.belongsTo(models.Passenger, {
-        foreignKey: 'passengerId',
-        as: 'passenger',
-        onDelete: 'CASCADE'
-      });
-      Reservation.belongsTo(models.Seat, {
-        foreignKey: 'seatId',
-        as: 'seat',
+      Reservation.hasMany(models.Ticket, {
+        foreignKey: 'reservationId',
+        as: 'tickets',
         onDelete: 'CASCADE'
       });
       Reservation.belongsTo(models.Schedule, {
@@ -24,25 +19,30 @@ module.exports = (sequelize, DataTypes) => {
         as: 'schedule',
         onDelete: 'CASCADE'
       });
+      Reservation.belongsTo(models.User, {
+        foreignKey: 'userClientId',
+        as: 'user',
+        onDelete: 'CASCADE'
+      });
     }
   }
   Reservation.init(
     {
-      passengerId: {
+      userClientId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
-          model: 'Passenger',
+          model: 'User',
           key: 'id'
         }
       },
-      seatId: {
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      totalSeats: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Seat',
-          key: 'id'
-        }
+        allowNull: false
       },
       totalPrice: {
         type: DataTypes.FLOAT,

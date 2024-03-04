@@ -6,13 +6,13 @@ import regular_passenger from '../../assets/TravelBenefitsSection/regular_passen
 
 const TravelBenefitsSection = () => {
   return (
-    <div className='flex flex-col items-center h-auto w-full gap-8 lg:p-10 text-[#1A202C] cursor-default'>
-      <h2 className='lg:text-5xl text-3xl px-4 font-medium text-[#486284] text-center '>
+    <div className='flex flex-col items-center h-auto w-full gap-8 lg:p-10 text-color-dark cursor-default'>
+      <h2 className='lg:text-5xl text-3xl px-4 uppercase font-medium text-midnight-slate text-center tracking-tight'>
         ¿Por qué viajar con nosotros?
       </h2>
       <p className='lg:w-5/12 w-full px-4 text-lg font-normal text-center'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore e
+        Viaja con nosotros y disfruta de seguridad, comodidad y confiabilidad en
+        cada destino.
       </p>
 
       <div className='lg:flex px-3 h-4/6 w-full justify-evenly items-center'>
@@ -22,7 +22,7 @@ const TravelBenefitsSection = () => {
           alt='placeholder'
         />
         <div className='lg:w-2/6 gap-6 pt-4 lg:pt-0 px-1 flex flex-col justify-between '>
-          <div className='flex h-3/12 gap-3'>
+          <div className='flex h-3/12 gap-[18px]'>
             <div className='flex justify-center items-center'>
               <div className='w-12 flex justify-center'>
                 <img
@@ -34,16 +34,16 @@ const TravelBenefitsSection = () => {
               </div>
             </div>
             <div className='flex flex-col justify-between'>
-              <p className='font-semibold lg:text-[22px] text-base'>
+              <p className='font-semibold lg:text-[22px] text-base pb-1'>
                 Tickets digitales
               </p>
               <p>
-                Aliquam erat volutpat. Integer malesuada turpis id fringilla
-                suscipit. Maecenas ultrices.
+                Ya no necesitas imprimir, presenta tu ticket digital al chofer
+                antes de ingresar al bus.
               </p>
             </div>
           </div>
-          <div className='flex h-3/12 gap-3'>
+          <div className='flex h-3/12 gap-[18px]'>
             <div className='flex justify-center items-center'>
               <div className='w-12 flex justify-center'>
                 <img
@@ -55,16 +55,16 @@ const TravelBenefitsSection = () => {
               </div>
             </div>
             <div>
-              <p className='font-semibold lg:text-xl text-base'>
-                Alertas y notificaciones en tiempo real
+              <p className='font-semibold lg:text-[22px] text-base pb-1'>
+                Nuestros destinos
               </p>
               <p>
-                Aliquam erat volutpat. Integer malesuada turpis id fringilla
-                suscipit. Maecenas ultrices.
+                Te ofrecemos una amplia gama de destinos para que vos elijas
+                adonde querés llegar.
               </p>
             </div>
           </div>
-          <div className='flex h-3/12 gap-3'>
+          <div className='flex h-3/12 gap-[18px]'>
             <div className='flex justify-center items-center'>
               <div className='w-12 flex justify-center'>
                 <img
@@ -77,18 +77,19 @@ const TravelBenefitsSection = () => {
             </div>
             <div>
               <div>
-                <p className='font-semibold lg:text-[22px] text-base '>
-                  <span className='text-[#605BFF]'>Calidad</span> del servicio
+                <p className='font-semibold lg:text-[22px] text-base pb-1'>
+                  Comodidad
                 </p>
               </div>
 
               <p>
-                Aliquam erat volutpat. Integer malesuada turpis id fringilla
-                suscipit. Maecenas ultrices.
+                Butacas más anchas y mayor distancia entre asientos , las
+                unidades cuentan con aire acondicionado, calefacción central,
+                minibar, video y baño.
               </p>
             </div>
           </div>
-          <div className='flex h-3/12 gap-3'>
+          <div className='flex h-3/12 gap-[18px]'>
             <div className='flex justify-center items-center'>
               <div className='w-12 flex justify-center'>
                 <img
@@ -100,12 +101,12 @@ const TravelBenefitsSection = () => {
               </div>
             </div>
             <div>
-              <p className='font-semibold lg:text-[22px] text-base'>
+              <p className='font-semibold lg:text-[22px] text-base pb-1'>
                 Club de pasajeros frecuentes
               </p>
               <p>
-                Aliquam erat volutpat. Integer malesuada turpis id fringilla
-                suscipit. Maecenas ultrices.
+                Descubre todas las alternativas para canjear tus kilómetros que
+                te entrega Ticket Bus.
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-const { Schedule, sequelize } = require('../database/models');
+const { Schedule } = require('../database/models');
 const { Route, Terminal, City } = require('../database/models');
 const { getDayName } = require('../helpers/getDayName');
 
@@ -9,7 +9,9 @@ const getAll = async () => {
 
 // Obtener un horario por su id
 const getById = async (id) => {
-  const schedule = await Schedule.findByPk(id);
+  const schedule = await Schedule.findByPk(id, {
+    include: { all: true, nested: false }
+  });
   return schedule;
 };
 
@@ -63,6 +65,22 @@ const getAvailableSchedules = async (
 
   // Get schedules for the extracted route IDs and given day of the week
   const schedules = await Schedule.findAll({
+    include: [
+      {
+        model: Route,
+        as: 'route',
+        include: [
+          {
+            model: Terminal,
+            as: 'originTerminal'
+          },
+          {
+            model: Terminal,
+            as: 'destinationTerminal'
+          }
+        ]
+      }
+    ],
     where: {
       routeId: routeIds,
       day: getDayName(dayOfWeek)

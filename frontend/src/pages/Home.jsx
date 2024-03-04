@@ -7,10 +7,9 @@ import TravelBenefitsSection from '../components/TravelBenefits/TravelBenefitsSe
 import Reviews from '../components/ReviewsHome/Reviews.jsx';
 import SuscribeEmail from '../components/SuscribeEmail.jsx';
 
-
 function Home() {
   return (
-    <main>
+    <main className=''>
       <Hero />
       <FormSearchTravels />
       <TravelStepsWrapper />
