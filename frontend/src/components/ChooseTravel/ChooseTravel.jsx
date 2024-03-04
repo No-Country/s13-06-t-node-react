@@ -3,6 +3,7 @@ import arrow from '../../assets/arrow.svg';
 import Schedule from './Schedule';
 import BackButton from '../BackButton';
 import ContinueButton from '../ContinueButton';
+import MapRoute from '../MapRoute/MapRoute';
 
 export default function ChooseTravel() {
   return (
@@ -41,10 +42,10 @@ export default function ChooseTravel() {
         </div>
       </div>
       <div className='lg:w-2/5 w-full'>
-        <img
-          className='lg:block hidden w-[497px] h-96'
-          src='https://s3-alpha-sig.figma.com/img/6d53/1eb5/fa7d270debbd2fcce88a2c006bcb78b2?Expires=1709510400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lLft49JTHBw3aiCBlNZ8obZBtDJ694GkU56xxQ5zqdTDGkID0q8ImY8C5HyfXWxnGFOtCrWbW8iCVchyYTtN8akI4QbwKwoU1yUAKpNzXfboHRVOhD2JJFyfmzEhoU3mOT0f20o-Iq8QDX-4eFexFYL1Shmkv6sNM03Codv1PN4AkpT-IOg9gAB7P55KQ~tw5jS7PzIHdfpLOacitdhkPKAku60jMQuVZ1rJLmRzMeHOh~KnG2aWt~J6vwSB1GIUf-JfgIaWnXUi9P4Dnh7JC8HYpLYvA9Snk4wVZZDGlUcH1UNWkdyF7o1X3ixmrqpI8WlcGug8IZfq6IZtvA6GSA__'
-          alt=''
+        {/* Actualizar para obtener las coordenadas del store segun la ruta seleccionada [latitud, longitud] */}
+        <MapRoute
+          origin={[-58.3816, -34.6037]}
+          destination={[-57.5575, -38.0023]}
         />
       </div>
     </div>

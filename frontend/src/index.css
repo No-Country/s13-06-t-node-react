@@ -9,3 +9,9 @@
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
+
+/* Mapbox */
+.mapboxgl-ctrl-bottom-right,
+.mapboxgl-ctrl-bottom-left {
+  display: none;
+}
