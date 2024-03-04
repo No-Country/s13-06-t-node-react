@@ -30,7 +30,7 @@ export default function Schedule({ departure, arrival, origin, destination }) {
     // tengo que revisar cuales estilos exactamente se aplican y removerlos en Schedule.css
     <button className='daisy-btn-block select-button' onClick={handleSelect}>
       <div
-        className={`flex py-8 px-4 rounded-lg mb-4 pr-12 justify-between w-full flex-col md:flex-row relative ${isActive ? 'bg-[#93E0BB]' : 'bg-[#DEE0E4]'}`}
+        className={`flex py-8 px-4 rounded-lg mb-4  justify-between w-full flex-col md:flex-row relative ${isActive ? 'bg-[#93E0BB]' : 'bg-[#DEE0E4]'}`}
       >
         <div className='flex gap-12 mb-8 md:mb-0 '>
           <div className='gap-2 flex flex-col text-[#486284]'>
