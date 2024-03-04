@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^2.2.1",
     "creditcard.js": "^3.0.33",
     "lodash-es": "^4.17.21",
+    "mapbox-gl": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
