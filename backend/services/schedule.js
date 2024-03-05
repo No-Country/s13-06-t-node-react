@@ -85,7 +85,7 @@ const getAvailableSchedules = async (
       routeId: routeIds,
       day: getDayName(dayOfWeek)
     },
-    include: { all: true, nested: false }
+    nested: false
   });
   return schedules;
 };

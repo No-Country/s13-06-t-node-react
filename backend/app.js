@@ -24,6 +24,7 @@ const cityRouter = require('./routes/city');
 const amenitiesRouter = require('./routes/amenity');
 const reservationRouter = require('./routes/reservation');
 const ticketRouter = require('./routes/ticket');
+const mercadopagoRouter = require('./routes/mercadopago');
 
 const app = express();
 
@@ -60,6 +61,7 @@ app.use('/api/v1/passengers', passengerRouter);
 app.use('/api/v1/amenities', amenitiesRouter);
 app.use('/api/v1/reservations', reservationRouter);
 app.use('/api/v1/tickets', ticketRouter);
+app.use('/api/v1/mercadopago', mercadopagoRouter);
 
 // Swagger specification
 const specs = getSwaggerSpec();
