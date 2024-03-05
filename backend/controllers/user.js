@@ -98,7 +98,7 @@ module.exports = {
   create: catchAsync(async (req, res) => {
     try {
       // Obtenemos los datos del usuario desde el body
-      const { dni, firstName, lastName, email, password } = req.body;
+      const { firstName, lastName, email, password } = req.body;
 
       // Verificamos que el usuario no exista
       const existingUser = await UserService.getByEmail(email);
@@ -112,7 +112,6 @@ module.exports = {
       const hashedPassword = await bcrypt.hash(password, 10);
 
       const user = {
-        dni,
         firstName,
         lastName,
         email,
@@ -124,15 +123,15 @@ module.exports = {
 
       // Si no se pudo crear el usuario, lanzamos un error
       if (!newUser) {
-        throw new Error('No se pudo registrar el usuario!');
+        throw new Error('No se pudo crear el usuario!');
       }
 
       // Si se pudo crear el usuario, enviamos la respuesta
       endpointResponse({
         res,
         code: 201,
-        message: 'Usuario registrado con éxito!',
-        body: newUser
+        message: 'Usuario creado con éxito!',
+        body: { ...newUser, password: undefined }
       });
     } catch (error) {
       // Si hubo un error, lo capturamos y lo lanzamos
@@ -140,7 +139,7 @@ module.exports = {
         res,
         status: error.status || 'error',
         code: error.statusCode || 500,
-        message: error.message || 'No se pudo registrar el usuario!'
+        message: error.message || 'No se pudo crear el usuario!'
       });
     }
   }),

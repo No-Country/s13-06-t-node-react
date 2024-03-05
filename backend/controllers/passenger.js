@@ -61,7 +61,7 @@ module.exports = {
 
       if (!passenger) {
         throw new ErrorObject(
-          `No se encontró ningúna ruta con el ID: ${id}`,
+          `No se encontró ningún pasajero con el ID: ${id}`,
           404
         );
       }
@@ -69,7 +69,7 @@ module.exports = {
       endpointResponse({
         res,
         status: 'success',
-        message: 'Ruta obtenida con éxito!',
+        message: 'Pasajero obtenida con éxito!',
         body: passenger
       });
     } catch (error) {
@@ -77,7 +77,7 @@ module.exports = {
         res,
         status: error.status || 'error',
         code: error.statusCode || 500,
-        message: error.message || 'Error al obtener la ruta!'
+        message: error.message || 'Error al obtener al pasajero!'
       });
     }
   }),
@@ -108,7 +108,10 @@ module.exports = {
       const updatedPassenger = await PassengerService.update(id, req.body);
 
       if (!updatedPassenger) {
-        throw new ErrorObject('No se pudo actualizar el pasajero.', 500);
+        throw new ErrorObject(
+          `No se encontró ningún pasajero con el ID: ${id}`,
+          404
+        );
       }
 
       endpointResponse({

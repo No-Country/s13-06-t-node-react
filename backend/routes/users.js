@@ -20,7 +20,7 @@ router.get('/', getAll);
 router.get('/email/:email', getByEmail);
 
 /* GET user by id. */
-router.get('/id/:id', getById);
+router.get('/:id', getById);
 
 /* POST new user. */
 router.post('/', create);
