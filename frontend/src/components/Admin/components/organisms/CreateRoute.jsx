@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import rutas from '../../../assets/AdminUsuario/rutas.svg';
-import { useRoutes } from '../../../hooks/useRoutes';
-import InputSelectAdmin from './atoms/InputSelectAdmin';
-import InputTextAdmin from './atoms/InputTextAdmin';
-import SubmitButton from './atoms/SubmitButton';
-import CancelButton from './atoms/CancelButton';
+import rutas from '../../../../assets/AdminUsuario/rutas.svg';
+import { useRoutes } from '../../../../hooks/useRoutes';
+import InputSelectAdmin from '../atoms/InputSelectAdmin';
+import InputTextAdmin from '../atoms/InputTextAdmin';
+import SubmitButton from '../atoms/SubmitButton';
+import CancelButton from '../atoms/CancelButton';
 
 function CreateRoute() {
   const { createNewRoute } = useRoutes();
