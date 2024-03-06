@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    
   .container
     .left
       h1= title
@@ -8,7 +9,8 @@ block content
       p Selecciona una opción para continuar:
       .buttons
         a(href="https://ticket-bus.netlify.app/" target="_blank") Ir a la aplicación
-        a(href="/api-docs") Documentacion de la API
+        a(href="/api-docs") Ver Documentacion de la API en Swagger
+        a(href="/api-docs.html") Ver Documentacion de la API en Redocly
     
     .right
       img(src="https://www.voyenbus.com/assets/img/veb/veb_empresas_header_02.webp", alt="Bus")

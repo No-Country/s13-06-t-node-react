@@ -6,6 +6,7 @@ const { catchAsync } = require('../helpers/catchAsync');
 const { endpointResponse } = require('../helpers/success');
 const { secretOrKey } = require('../config/keys');
 const { ErrorObject } = require('../helpers/error');
+const emailService = require('../services/mailer');
 
 module.exports = {
   register: catchAsync(async (req, res) => {
@@ -31,6 +32,16 @@ module.exports = {
 
       // Eliminamos la contraseña del usuario
       newUser.password = undefined;
+
+      // Enviamos un correo de confirmación
+      const mailOptions = {
+        from: process.env.MAIL_USERNAME,
+        to: newUser.email,
+        subject: 'Confirmación de registro',
+        html: `<h1>Bienvenido a Ticket Bus</h1><p>Gracias por registrarte en nuestra plataforma. Ahora puedes iniciar sesión con tu correo electrónico y tu contraseña.</p><><li>Correo: ${newUser.email}</li><li>Nombre: ${newUser.firstName} ${newUser.lastName}</li><li>Contraseña: ${user.password}</li></ul>`
+      };
+
+      await emailService.sendEmail(mailOptions);
 
       // Si se pudo crear el usuario, enviamos la respuesta
       endpointResponse({

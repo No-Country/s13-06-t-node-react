@@ -758,7 +758,7 @@
         "summary": "Obtener todos los pasajeros",
         "deprecated": false,
         "description": "",
-        "operationId": "registerPassenger",
+        "operationId": "getAllPassengers",
         "tags": ["Passengers"],
         "parameters": [],
         "responses": {
@@ -1741,9 +1741,10 @@
     },
     "/routes": {
       "get": {
-        "summary": "GetAllRoutes",
+        "summary": "Obtener todas las rutas",
         "deprecated": false,
         "description": "",
+        "operationId": "getAllRoutes",
         "tags": ["Routes"],
         "parameters": [],
         "responses": {
@@ -1751,7 +1752,37 @@
             "description": "Success",
             "content": {
               "application/json": {
-                "schema": { "type": "object", "properties": {} }
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Rutas obtenidas con éxito!",
+                      "body": {
+                        "routes": [
+                          {
+                            "id": 1,
+                            "originId": 1,
+                            "destinationId": 2,
+                            "duration": "09:15:00",
+                            "distance": "700.00",
+                            "price": "68900.00"
+                          },
+                          {
+                            "id": 2,
+                            "originId": 2,
+                            "destinationId": 3,
+                            "duration": "09:15:00",
+                            "distance": "700.00",
+                            "price": "68900.00"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -1767,23 +1798,7 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "originId": { "type": "integer" },
-                  "destinationId": { "type": "integer" },
-                  "duration": { "type": "string" },
-                  "distance": { "type": "string" },
-                  "price": { "type": "string" }
-                },
-                "required": [
-                  "originId",
-                  "destinationId",
-                  "duration",
-                  "distance",
-                  "price"
-                ]
-              },
+              "schema": { "$ref": "#/components/schemas/Route" },
               "example": {
                 "originId": 1,
                 "destinationId": 2,
@@ -1799,7 +1814,27 @@
             "description": "Success",
             "content": {
               "application/json": {
-                "schema": { "type": "object", "properties": {} }
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Ruta creada con éxito!",
+                      "body": {
+                        "route": {
+                          "id": 1,
+                          "originId": 1,
+                          "destinationId": 2,
+                          "duration": "09:15:00",
+                          "distance": "700.00",
+                          "price": "68900.00"
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -1925,63 +1960,7 @@
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string" },
-                    "code": { "type": "integer" },
-                    "message": { "type": "string" },
-                    "body": {
-                      "type": "object",
-                      "properties": {
-                        "terminals": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": { "type": "integer" },
-                              "lat": { "type": "number" },
-                              "lon": { "type": "number" },
-                              "cityId": { "type": "integer" },
-                              "terminalName": { "type": "string" },
-                              "terminalCode": { "type": "integer" },
-                              "createdAt": { "type": "string" },
-                              "updatedAt": { "type": "string" },
-                              "city": {
-                                "type": "object",
-                                "properties": {
-                                  "id": { "type": "integer" },
-                                  "name": { "type": "string" },
-                                  "createdAt": { "type": "string" },
-                                  "updatedAt": { "type": "string" }
-                                },
-                                "required": [
-                                  "id",
-                                  "name",
-                                  "createdAt",
-                                  "updatedAt"
-                                ]
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "lat",
-                              "lon",
-                              "cityId",
-                              "terminalName",
-                              "terminalCode",
-                              "createdAt",
-                              "updatedAt",
-                              "city"
-                            ]
-                          }
-                        }
-                      },
-                      "required": ["terminals"]
-                    }
-                  },
-                  "required": ["status", "code", "message", "body"]
-                },
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
                     "summary": "Success",
@@ -1998,13 +1977,9 @@
                             "cityId": 1,
                             "terminalName": "Retiro",
                             "terminalCode": 101,
-                            "createdAt": "2024-02-26T17:16:01.397Z",
-                            "updatedAt": "2024-02-26T17:16:01.397Z",
                             "city": {
                               "id": 1,
-                              "name": "Buenos Aires",
-                              "createdAt": "2024-02-26T17:16:01.354Z",
-                              "updatedAt": "2024-02-26T19:18:30.800Z"
+                              "name": "Buenos Aires"
                             }
                           },
                           {
@@ -2014,33 +1989,31 @@
                             "cityId": 2,
                             "terminalName": "Cordoba",
                             "terminalCode": 201,
-                            "createdAt": "2024-02-26T17:16:01.397Z",
-                            "updatedAt": "2024-02-26T17:16:01.397Z",
                             "city": {
                               "id": 2,
-                              "name": "Córdoba",
-                              "createdAt": "2024-02-26T17:16:01.354Z",
-                              "updatedAt": "2024-02-26T17:16:01.354Z"
-                            }
-                          },
-                          {
-                            "id": 3,
-                            "lat": -31.424131932362194,
-                            "lon": -64.17253998369662,
-                            "cityId": 2,
-                            "terminalName": "Nueva",
-                            "terminalCode": 202,
-                            "createdAt": "2024-02-26T17:16:01.397Z",
-                            "updatedAt": "2024-02-26T17:16:01.397Z",
-                            "city": {
-                              "id": 2,
-                              "name": "Córdoba",
-                              "createdAt": "2024-02-26T17:16:01.354Z",
-                              "updatedAt": "2024-02-26T17:16:01.354Z"
+                              "name": "Córdoba"
                             }
                           }
                         ]
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "Error al obtener las terminales!"
                     }
                   }
                 }
@@ -2091,49 +2064,7 @@
             "description": "Success",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string" },
-                    "code": { "type": "integer" },
-                    "message": { "type": "string" },
-                    "body": {
-                      "type": "object",
-                      "properties": {
-                        "id": { "type": "integer" },
-                        "lat": { "type": "number" },
-                        "lon": { "type": "number" },
-                        "cityId": { "type": "integer" },
-                        "terminalName": { "type": "string" },
-                        "terminalCode": { "type": "integer" },
-                        "updatedAt": { "type": "string" },
-                        "createdAt": { "type": "string" },
-                        "city": {
-                          "type": "object",
-                          "properties": {
-                            "id": { "type": "integer" },
-                            "name": { "type": "string" },
-                            "createdAt": { "type": "string" },
-                            "updatedAt": { "type": "string" }
-                          },
-                          "required": ["id", "name", "createdAt", "updatedAt"]
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "lat",
-                        "lon",
-                        "cityId",
-                        "terminalName",
-                        "terminalCode",
-                        "createdAt",
-                        "updatedAt",
-                        "city"
-                      ]
-                    }
-                  },
-                  "required": ["status", "code", "message", "body"]
-                },
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
                     "summary": "Success",
@@ -2148,13 +2079,9 @@
                         "cityId": 1,
                         "terminalName": "Nueva Terminal",
                         "terminalCode": 211,
-                        "createdAt": "2024-02-27T00:46:22.191Z",
-                        "updatedAt": "2024-02-27T00:46:22.191Z",
                         "city": {
                           "id": 1,
-                          "name": "Buenos Aires",
-                          "createdAt": "2024-02-26T17:16:01.354Z",
-                          "updatedAt": "2024-02-26T19:18:30.800Z"
+                          "name": "Buenos Aires"
                         }
                       }
                     }
@@ -2167,15 +2094,7 @@
             "description": "Bad Request",
             "content": {
               "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string" },
-                    "code": { "type": "integer" },
-                    "message": { "type": "string" }
-                  },
-                  "required": ["status", "code", "message"]
-                },
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
                     "summary": "Exception: Código términal repetido",
@@ -2183,6 +2102,24 @@
                       "status": "fail",
                       "code": 409,
                       "message": "Ya existe una terminal con el código: 101"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "Error al crear la terminal!"
                     }
                   }
                 }
@@ -2540,7 +2477,7 @@
     },
     "/schedules": {
       "get": {
-        "summary": "GetAvailableSchedules",
+        "summary": "Obtener todos los horarios",
         "deprecated": false,
         "description": "",
         "tags": ["Schedules"],
@@ -3477,6 +3414,49 @@
           "body": { "type": "object", "properties": {} }
         },
         "required": ["status", "code", "message"]
+      },
+      "Terminal": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "lat": { "type": "number" },
+          "lon": { "type": "number" },
+          "cityId": { "type": "integer" },
+          "terminalName": { "type": "string" },
+          "terminalCode": { "type": "integer" },
+          "city": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string" }
+            }
+          }
+        },
+        "required": ["lat", "lon", "cityId", "terminalName", "terminalCode"]
+      },
+      "Route": {
+        "type": "object",
+        "properties": {
+          "originId": { "type": "integer" },
+          "destinationId": { "type": "integer" },
+          "duration": { "type": "string" },
+          "distance": { "type": "string" },
+          "price": { "type": "string" }
+        },
+        "example": {
+          "originId": 1,
+          "destinationId": 2,
+          "duration": "09:15:00",
+          "distance": "700.00",
+          "price": "68900.00"
+        },
+        "required": [
+          "originId",
+          "destinationId",
+          "duration",
+          "distance",
+          "price"
+        ]
       }
     },
     "securitySchemes": {}
@@ -3485,7 +3465,7 @@
     { "url": "http://localhost:3000/api/v1", "description": "Develop Env" },
     {
       "url": "https://ticket-bus-api-dev.up.railway.app/api/v1",
-      "description": "Prod Env"
+      "description": "Production Env"
     }
   ]
 }
