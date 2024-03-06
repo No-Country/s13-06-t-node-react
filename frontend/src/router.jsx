@@ -16,6 +16,7 @@ import SeatSelection from './pages/ticket/SeatSelection.jsx';
 import LoginForm from './components/Login/LoginForm.jsx';
 import AdminLayout from './layouts/AdminLayout.jsx';
 import CreateRoute from './components/Admin/components/CreateRoute.jsx';
+import HomeAdmin from './pages/auth/admin/HomeAdmin.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -86,7 +87,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <CreateRoute /> //Principal
+        element: <HomeAdmin /> //Principal
       },
       {
         path: 'createTerminal',

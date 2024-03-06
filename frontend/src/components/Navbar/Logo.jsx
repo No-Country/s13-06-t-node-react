@@ -4,7 +4,7 @@ import LogoImage from '../LogoImage/LogoImage.jsx';
 const Logo = () => {
   return (
     <Link
-      a='/'
+      to='/'
       className='flex-1 md:font-semibold font-bold text-white md:text-color-dark md:text-4xl'
     >
       <LogoImage />
