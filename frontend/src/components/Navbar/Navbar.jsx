@@ -8,7 +8,6 @@ import './Navbar.css';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,8 +15,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-      if (windowWidth > 640 && isMenuOpen) {
+      if (window.innerWidth > 640 && isMenuOpen) {
         setIsMenuOpen(false);
       }
     };
@@ -27,7 +25,7 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [windowWidth, isMenuOpen]);
+  }, [isMenuOpen]);
 
   return (
     // TODO: el boton Mi Cuenta se rompe de 768px a 910px, solucionar
