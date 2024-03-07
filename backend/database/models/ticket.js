@@ -11,18 +11,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Ticket.belongsTo(models.Reservation, {
         foreignKey: 'reservationId',
-        as: 'reservation',
-        onDelete: 'CASCADE'
+        as: 'reservation'
       });
       Ticket.belongsTo(models.Seat, {
         foreignKey: 'seatId',
-        as: 'seat',
-        onDelete: 'CASCADE'
+        as: 'seat'
       });
       Ticket.belongsTo(models.Schedule, {
         foreignKey: 'scheduleId',
-        as: 'schedule',
-        onDelete: 'CASCADE'
+        as: 'schedule'
       });
     }
   }

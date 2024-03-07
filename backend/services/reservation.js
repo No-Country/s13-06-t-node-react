@@ -5,9 +5,10 @@ const {
   Seat,
   Route,
   Terminal,
-  City
+  City,
+  sequelize
 } = require('../database/models');
-const debug = require('debug')('app:service:reservation');
+const getArrivalTime = require('../helpers/getArrivalTime');
 
 // Obtener todas las reservas
 const getAll = async () => {
@@ -69,7 +70,66 @@ const getAll = async () => {
 
 // Obtener una reserva por su id
 const getById = async (id) => {
-  const reservation = await Reservation.findByPk(id);
+  const reservation = await Reservation.findByPk(id, {
+    include: [
+      {
+        model: Ticket,
+        as: 'tickets',
+        attributes: ['id', 'firstName', 'lastName', 'dni'],
+        include: [
+          {
+            model: Seat,
+            as: 'seat',
+            attributes: ['number', 'category']
+          }
+        ]
+      },
+      {
+        model: Schedule,
+        as: 'schedule',
+        attributes: ['departureTime'],
+        include: [
+          {
+            model: Route,
+            as: 'route',
+            attributes: ['id', 'duration', 'price', 'distance'],
+            include: [
+              {
+                model: Terminal,
+                as: 'originTerminal',
+                attributes: ['terminalName', 'lon', 'lat'],
+                include: [
+                  {
+                    model: City,
+                    as: 'city',
+                    attributes: ['name']
+                  }
+                ]
+              },
+              {
+                model: Terminal,
+                as: 'destinationTerminal',
+                attributes: ['terminalName', 'lon', 'lat'],
+                include: [
+                  {
+                    model: City,
+                    as: 'city',
+                    attributes: ['name']
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  });
+  if (reservation && reservation.schedule) {
+    reservation.schedule.arrivalTime = getArrivalTime(
+      reservation.schedule.departureTime,
+      reservation.schedule.route.duration
+    );
+  }
   return reservation;
 };
 
@@ -89,17 +149,24 @@ const getByUser = async (userClientId) => {
 
 // Crear una reserva
 const create = async (reservation, passengers) => {
-  reservation.totalSeats = passengers.length;
-  const rsv = await Reservation.create(reservation);
-  const tickets = passengers.map((p) => ({
-    ...p,
-    reservationId: rsv.id,
-    scheduleId: rsv.scheduleId,
-    userClientId: rsv.userClientId
-  }));
-  debug(tickets);
-  await Ticket.bulkCreate(tickets);
-  return await getById(rsv.id);
+  const result = await sequelize.transaction(async (t) => {
+    reservation.totalSeats = passengers.length;
+
+    const rsv = await Reservation.create(reservation, { transaction: t });
+    const tickets = passengers.map((p) => ({
+      ...p,
+      reservationId: rsv.id,
+      scheduleId: rsv.scheduleId,
+      departureDate: rsv.dateReservation,
+      userClientId: rsv?.userClientId
+    }));
+
+    await Ticket.bulkCreate(tickets, { transaction: t });
+    const resultReservation = await getById(rsv.id, t);
+
+    return resultReservation;
+  });
+  return result;
 };
 
 // Actualizar una reserva

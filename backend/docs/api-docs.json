@@ -118,7 +118,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Exception",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -209,7 +209,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -332,7 +332,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -428,7 +428,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -500,7 +500,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún usuario con el ID: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -578,7 +578,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún usuario con el ID: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -596,7 +596,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -652,7 +652,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún usuario con el ID: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -670,7 +670,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -738,7 +738,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún usuario con el email: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -805,7 +805,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -891,7 +891,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -958,7 +958,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún pasajero con el ID: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -976,7 +976,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1054,7 +1054,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún pasajero con el ID: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -1072,7 +1072,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1127,7 +1127,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "No se encontró el pasajero",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -1145,7 +1145,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1285,7 +1285,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1372,7 +1372,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1443,7 +1443,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún vehiculo con el ID: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -1461,7 +1461,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1543,7 +1543,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "ENo se encontró ningún vehiculo con el ID: 1",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -1561,7 +1561,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1617,7 +1617,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "No se encontró el vehiculo",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -1635,7 +1635,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1706,7 +1706,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "No se encontró ningún vehiculo con la placa: QRST90",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -1724,7 +1724,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -1749,7 +1749,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -1764,22 +1764,162 @@
                         "routes": [
                           {
                             "id": 1,
-                            "originId": 1,
-                            "destinationId": 2,
-                            "duration": "09:15:00",
-                            "distance": "700.00",
-                            "price": "68900.00"
+                            "duration": "10:10:00",
+                            "distance": "635.00",
+                            "price": "50000.00",
+                            "originTerminal": {
+                              "id": 1,
+                              "lat": -34.586038978354786,
+                              "lon": -58.373904326868484,
+                              "terminalName": "Retiro",
+                              "terminalCode": 101,
+                              "city": {
+                                "id": 1,
+                                "name": "Buenos Aires"
+                              }
+                            },
+                            "destinationTerminal": {
+                              "id": 2,
+                              "lat": -31.422642411115337,
+                              "lon": -64.1752754681699,
+                              "terminalName": "Cordoba",
+                              "terminalCode": 201,
+                              "city": {
+                                "id": 2,
+                                "name": "Córdoba"
+                              }
+                            },
+                            "schedules": [
+                              {
+                                "id": 1,
+                                "day": "MON",
+                                "departureTime": "08:00:00",
+                                "cost": "50.00",
+                                "vehicles": {
+                                  "id": 1,
+                                  "number": 1,
+                                  "plate": "qrst90",
+                                  "totalSeats": 60
+                                },
+                                "arrivalTime": "18:10:00"
+                              },
+                              {
+                                "id": 2,
+                                "day": "MON",
+                                "departureTime": "12:00:00",
+                                "cost": "50.00",
+                                "vehicles": {
+                                  "id": 2,
+                                  "number": 2,
+                                  "plate": "abcd12",
+                                  "totalSeats": 40
+                                },
+                                "arrivalTime": "22:10:00"
+                              },
+                              {
+                                "id": 3,
+                                "day": "MON",
+                                "departureTime": "16:00:00",
+                                "cost": "50.00",
+                                "vehicles": {
+                                  "id": 3,
+                                  "number": 3,
+                                  "plate": "wxyz34",
+                                  "totalSeats": 40
+                                },
+                                "arrivalTime": "02:10:00"
+                              }
+                            ]
                           },
                           {
                             "id": 2,
-                            "originId": 2,
-                            "destinationId": 3,
-                            "duration": "09:15:00",
-                            "distance": "700.00",
-                            "price": "68900.00"
+                            "duration": "07:35:00",
+                            "distance": "695.00",
+                            "price": "70000.00",
+                            "originTerminal": {
+                              "id": 2,
+                              "lat": -31.422642411115337,
+                              "lon": -64.1752754681699,
+                              "terminalName": "Cordoba",
+                              "terminalCode": 201,
+                              "city": {
+                                "id": 2,
+                                "name": "Córdoba"
+                              }
+                            },
+                            "destinationTerminal": {
+                              "id": 1,
+                              "lat": -34.586038978354786,
+                              "lon": -58.373904326868484,
+                              "terminalName": "Retiro",
+                              "terminalCode": 101,
+                              "city": {
+                                "id": 1,
+                                "name": "Buenos Aires"
+                              }
+                            },
+                            "schedules": [
+                              {
+                                "id": 11,
+                                "day": "MON",
+                                "departureTime": "08:30:00",
+                                "cost": "50.00",
+                                "vehicles": {
+                                  "id": 5,
+                                  "number": 5,
+                                  "plate": "jklm78",
+                                  "totalSeats": 40
+                                },
+                                "arrivalTime": "16:05:00"
+                              },
+                              {
+                                "id": 12,
+                                "day": "MON",
+                                "departureTime": "12:30:00",
+                                "cost": "60.00",
+                                "vehicles": {
+                                  "id": 6,
+                                  "number": 6,
+                                  "plate": "uvwx90",
+                                  "totalSeats": 60
+                                },
+                                "arrivalTime": "20:05:00"
+                              },
+                              {
+                                "id": 13,
+                                "day": "MON",
+                                "departureTime": "16:30:00",
+                                "cost": "60.00",
+                                "vehicles": {
+                                  "id": 7,
+                                  "number": 7,
+                                  "plate": "stuv12",
+                                  "totalSeats": 40
+                                },
+                                "arrivalTime": "00:05:00"
+                              }
+                            ]
                           }
                         ]
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Internal Server Error",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "Error al obtener las rutas!"
                     }
                   }
                 }
@@ -1790,7 +1930,7 @@
         "security": []
       },
       "post": {
-        "summary": "CreateNewRoute",
+        "summary": "Crear una nueva ruta",
         "deprecated": false,
         "description": "",
         "tags": ["Routes"],
@@ -1811,7 +1951,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -1843,6 +1983,155 @@
       }
     },
     "/routes/{id}": {
+      "get": {
+        "summary": "Obtener una ruta por su ID",
+        "deprecated": false,
+        "description": "Una ruta es un viaje que se realiza desde una terminal de origen a una terminal de destino. Cada ruta tiene un conjunto de horarios en los que se realizan los viajes.",
+        "tags": ["Routes"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "5",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Ruta obtenida con éxito!",
+                      "body": {
+                        "route": {
+                          "status": "success",
+                          "code": 200,
+                          "message": "Ruta obtenida con éxito!",
+                          "body": {
+                            "id": 2,
+                            "duration": "07:35:00",
+                            "distance": "695.00",
+                            "price": "70000.00",
+                            "originTerminal": {
+                              "id": 2,
+                              "lat": -31.422642411115337,
+                              "lon": -64.1752754681699,
+                              "terminalName": "Cordoba",
+                              "terminalCode": 201,
+                              "city": {
+                                "id": 2,
+                                "name": "Córdoba"
+                              }
+                            },
+                            "destinationTerminal": {
+                              "id": 1,
+                              "lat": -34.586038978354786,
+                              "lon": -58.373904326868484,
+                              "terminalName": "Retiro",
+                              "terminalCode": 101,
+                              "city": {
+                                "id": 1,
+                                "name": "Buenos Aires"
+                              }
+                            },
+                            "schedules": [
+                              {
+                                "id": 17,
+                                "day": "FRI",
+                                "departureTime": "10:00:00",
+                                "cost": "60.00",
+                                "vehicles": {
+                                  "id": 5,
+                                  "number": 5,
+                                  "plate": "jklm78",
+                                  "totalSeats": 40
+                                },
+                                "arrivalTime": "17:35:00"
+                              },
+                              {
+                                "id": 11,
+                                "day": "MON",
+                                "departureTime": "08:30:00",
+                                "cost": "50.00",
+                                "vehicles": {
+                                  "id": 5,
+                                  "number": 5,
+                                  "plate": "jklm78",
+                                  "totalSeats": 40
+                                },
+                                "arrivalTime": "16:05:00"
+                              },
+                              {
+                                "id": 18,
+                                "day": "FRI",
+                                "departureTime": "14:00:00",
+                                "cost": "60.00",
+                                "vehicles": {
+                                  "id": 6,
+                                  "number": 6,
+                                  "plate": "uvwx90",
+                                  "totalSeats": 60
+                                },
+                                "arrivalTime": "21:35:00"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro no encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Not Found",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "No se encontró ningúna ruta con el ID: 5"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Internal Server Error",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "Error al obtener la ruta!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
       "put": {
         "summary": "UpdateRouteById",
         "deprecated": false,
@@ -1890,7 +2179,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "type": "object", "properties": {} }
@@ -1917,7 +2206,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "type": "object", "properties": {} }
@@ -1930,17 +2219,70 @@
     },
     "/schedules/all": {
       "get": {
-        "summary": "GetAllSchedules",
+        "summary": "Obtener todos los horarios",
         "deprecated": false,
         "description": "",
         "tags": ["Schedules"],
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
-                "schema": { "type": "object", "properties": {} }
+                "schema": { "type": "object", "properties": {} },
+                "examples": {
+                  "1": {
+                    "summary": "Operación exitosa",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Horarios obtenidos con éxito!",
+                      "body": {
+                        "schedules": [
+                          {
+                            "id": 1,
+                            "day": "MON",
+                            "departureTime": "08:00:00",
+                            "cost": "50.00",
+                            "vehicles": {
+                              "id": 1,
+                              "number": 1,
+                              "plate": "qrst90",
+                              "totalSeats": 60
+                            },
+                            "arrivalTime": "18:10:00"
+                          },
+                          {
+                            "id": 2,
+                            "day": "MON",
+                            "departureTime": "12:00:00",
+                            "cost": "50.00",
+                            "vehicles": {
+                              "id": 2,
+                              "number": 2,
+                              "plate": "abcd12",
+                              "totalSeats": 40
+                            },
+                            "arrivalTime": "22:10:00"
+                          },
+                          {
+                            "id": 3,
+                            "day": "MON",
+                            "departureTime": "16:00:00",
+                            "cost": "50.00",
+                            "vehicles": {
+                              "id": 3,
+                              "number": 3,
+                              "plate": "wxyz34",
+                              "totalSeats": 40
+                            },
+                            "arrivalTime": "02:10:00"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -1957,13 +2299,13 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Operación exitosa",
                     "value": {
                       "status": "success",
                       "code": 200,
@@ -2009,7 +2351,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -2061,13 +2403,13 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Operación exitosa",
                     "value": {
                       "status": "success",
                       "code": 200,
@@ -2174,7 +2516,7 @@
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Success",
+                    "summary": "Internal Server Error",
                     "value": {
                       "status": "error",
                       "code": 500,
@@ -2207,7 +2549,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": {
@@ -2332,7 +2674,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": {
@@ -2467,7 +2809,7 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": {
@@ -2481,7 +2823,7 @@
                 },
                 "examples": {
                   "1": {
-                    "summary": "Exception: ID no encontrado",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -2538,7 +2880,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": {
@@ -2564,7 +2906,7 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": {
@@ -2578,7 +2920,7 @@
                 },
                 "examples": {
                   "1": {
-                    "summary": "Exception",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -2602,7 +2944,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "type": "object", "properties": {} }
@@ -2650,7 +2992,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "type": "object", "properties": {} }
@@ -2709,7 +3051,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "type": "object", "properties": {} }
@@ -2736,7 +3078,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "type": "object", "properties": {} }
@@ -2756,7 +3098,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -2810,7 +3152,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -2946,7 +3288,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -2970,13 +3312,13 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Exception",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -3021,7 +3363,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -3104,13 +3446,13 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Exception: ID no encontrado",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -3159,7 +3501,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -3177,13 +3519,13 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Exception: ID no encontrado",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -3235,13 +3577,13 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
                 "examples": {
                   "1": {
-                    "summary": "Exception",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -3293,7 +3635,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/ApiResponse" },
@@ -3351,7 +3693,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": {
@@ -3386,7 +3728,7 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": {
@@ -3400,7 +3742,7 @@
                 },
                 "examples": {
                   "1": {
-                    "summary": "Exception",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -3443,7 +3785,7 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": {
@@ -3478,7 +3820,7 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": {
@@ -3492,7 +3834,7 @@
                 },
                 "examples": {
                   "1": {
-                    "summary": "Exception: ID no encontrado",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
@@ -3549,7 +3891,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Operación exitosa",
             "content": {
               "application/json": {
                 "schema": {
@@ -3575,7 +3917,7 @@
             }
           },
           "404": {
-            "description": "Record Not Found",
+            "description": "Registro no encontrado",
             "content": {
               "application/json": {
                 "schema": {
@@ -3589,11 +3931,407 @@
                 },
                 "examples": {
                   "1": {
-                    "summary": "Exception: ID no encontrado",
+                    "summary": "Not Found",
                     "value": {
                       "status": "fail",
                       "code": 404,
                       "message": "No se encontró servicio con el ID: 0"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/reservations": {
+      "get": {
+        "summary": "Obtener todas las reservas",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Reservations"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Reservas obtenidas con éxito!",
+                      "body": {
+                        "reservations": [
+                          {
+                            "id": 1,
+                            "scheduleId": 1,
+                            "passengerId": 1,
+                            "seatNumber": 1,
+                            "totalPrice": "68900.00",
+                            "createdAt": "2024-02-26T17:16:01.354Z",
+                            "updatedAt": "2024-02-26T17:16:01.354Z"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "CreateNewReservation",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Reservations"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "scheduleId": { "type": "integer" },
+                  "passengerId": { "type": "integer" },
+                  "seatNumber": { "type": "integer" },
+                  "totalPrice": { "type": "string" }
+                },
+                "required": [
+                  "scheduleId",
+                  "passengerId",
+                  "seatNumber",
+                  "totalPrice"
+                ]
+              },
+              "example": {
+                "scheduleId": 1,
+                "passengerId": 1,
+                "seatNumber": 1,
+                "totalPrice": "68900.00"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Reserva creada con éxito!",
+                      "body": {
+                        "id": 1,
+                        "scheduleId": 1,
+                        "passengerId": 1,
+                        "seatNumber": 1,
+                        "totalPrice": "68900.00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/reservations/{id}": {
+      "get": {
+        "summary": "Obtener reserva por ID",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Reservations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Reserva obtenida con éxito!",
+                      "body": {
+                        "id": 1,
+                        "scheduleId": 1,
+                        "passengerId": 1,
+                        "seatNumber": 1,
+                        "totalPrice": "68900.00",
+                        "createdAt": "2024-02-26T17:16:01.354Z",
+                        "updatedAt": "2024-02-26T17:16:01.354Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro no encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Not Found",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "No se encontró reserva con el ID: 0"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "put": {
+        "summary": "Actualizar reserva",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Reservations"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "scheduleId": { "type": "integer" },
+                  "passengerId": { "type": "integer" },
+                  "seatNumber": { "type": "integer" },
+                  "totalPrice": { "type": "string" }
+                },
+                "required": [
+                  "scheduleId",
+                  "passengerId",
+                  "seatNumber",
+                  "totalPrice"
+                ]
+              },
+              "example": {
+                "scheduleId": 1,
+                "passengerId": 1,
+                "seatNumber": 1,
+                "totalPrice": "68900.00"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Reserva actualizada con éxito!",
+                      "body": {
+                        "id": 1,
+                        "scheduleId": 1,
+                        "passengerId": 1,
+                        "seatNumber": 1,
+                        "totalPrice": "68900.00"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro no encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Not Found",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "No se encontró reserva con el ID: 0"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/tickets": {
+      "get": {
+        "summary": "Obtener todos los tickets",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Tickets"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Tickets obtenidos con éxito!",
+                      "body": {
+                        "tickets": []
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro no encontrado",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Not Found",
+                    "value": {
+                      "status": "fail",
+                      "code": 404,
+                      "message": "No se encontraron tickets"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "No se pudieron obtener los tickets!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "Crear nuevo ticket",
+        "deprecated": false,
+        "description": "",
+        "tags": ["Tickets"],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reservationId": { "type": "integer" },
+                  "qrCode": { "type": "string" }
+                },
+                "required": ["reservationId", "qrCode"]
+              },
+              "example": {
+                "reservationId": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operación exitosa",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": "success",
+                      "code": 200,
+                      "message": "Ticket creado con éxito!",
+                      "body": {
+                        "id": 1,
+                        "reservationId": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ApiResponse" },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "status": "error",
+                      "code": 500,
+                      "message": "No se pudo crear el ticket!"
                     }
                   }
                 }

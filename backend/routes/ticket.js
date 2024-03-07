@@ -15,7 +15,7 @@ const router = express.Router();
 router.get('/', getAll);
 
 /* GET ticket by id. */
-router.get('/id/:id', getById);
+router.get('/:id', getById);
 
 /* GET ticket by email. */
 router.get('/email/:email', getByEmail);

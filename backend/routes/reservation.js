@@ -15,7 +15,7 @@ const router = Router();
 router.get('/', getAll);
 
 // Obtener una reserva por su id
-router.get('/id/:id', getById);
+router.get('/:id', getById);
 
 // Obtener una reserva por su email y fecha de reserva
 router.get('/email-date', getByEmailAndDate);

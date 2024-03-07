@@ -4,6 +4,11 @@ on:
     types: [closed]
     paths:
       - 'frontend/**'
+  push:
+    branches:
+      - develop
+    paths:
+      - 'frontend/**'
 
 jobs:
   deploy-frontend:

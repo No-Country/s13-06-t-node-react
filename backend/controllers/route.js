@@ -78,12 +78,13 @@ module.exports = {
 
       // Si no se pudo crear la ruta, lanzamos un error
       if (!newRoute) {
-        throw new Error('No se pudo añadir la ruta!');
+        throw new ErrorObject('No se pudo añadir la ruta!', 500);
       }
 
       // Si se pudo crear la ruta, enviamos la respuesta
       endpointResponse({
         res,
+        status: 'success',
         code: 201,
         message: 'Ruta añadida con éxito!',
         body: newRoute
