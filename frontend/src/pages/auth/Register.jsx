@@ -39,7 +39,7 @@ function Register() {
     <main className='h-screen bg-[#A5CCE0] pt-28'>
       <div className='flex justify-center max-w-7xl mx-auto'>
         <div className='w-full mt-24 hidden lg:block'>
-          <img src={registerImage} className='max-h-[664px]' />
+          <img src={registerImage} alt='log' className='max-h-[664px]' />
         </div>
         <div className='max-w-[484px] w-full px-11'>
           <h1 className='uppercase text-2xl lg:text-[32px] text-[#1A202C] font-bold text-center lg:text-left'>

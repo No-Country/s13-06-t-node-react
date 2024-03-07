@@ -48,7 +48,7 @@ const Register = () => {
         <div className='mx-auto w-full max-w-sm lg:w-96'>
           <div>
             <Link to='/'>
-              <img className='h-10 w-auto' src={logo} alt='Logo' />
+              <img className='h-10 w-auto mx-auto' src={logo} alt='Logo' />
             </Link>
             <h2 className='mt-5 text-2xl font-bold leading-9 tracking-tight text-gray-900 uppercase'>
               REGISTRO DE USUARIO
