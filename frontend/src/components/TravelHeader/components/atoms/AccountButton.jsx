@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-function AccountButton({ iconSrc, iconAlt, buttonText, onClick }) {
+function AccountButton({ iconSrc, iconAlt, buttonText, href }) {
   return (
-    <button
-      type='button'
+    <Link
+      to={href}
       className={`bg-[#486284] flex text-white rounded-md px-4 py-3 uppercase text-sm whitespace-nowrap`}
-      onClick={onClick}
     >
       <img src={iconSrc} alt={iconAlt} className='mr-1 -ml-1' /> {buttonText}
-    </button>
+    </Link>
   );
 }
 
@@ -16,7 +16,7 @@ AccountButton.propTypes = {
   iconSrc: PropTypes.string,
   iconAlt: PropTypes.string,
   buttonText: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  href: PropTypes.string.isRequired
 };
 
 export default AccountButton;

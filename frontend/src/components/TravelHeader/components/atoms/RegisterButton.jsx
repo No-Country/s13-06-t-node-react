@@ -1,20 +1,22 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-function RegisterButton({ onClick, text }) {
+function RegisterButton({ onClick, text, href }) {
   return (
-    <button
-      type='button'
+    <Link
+      to={href}
       onClick={onClick}
-      className='bg-transparent text-[#486284] border-l-2 border-[#486284] font-normal  py-2 px-3 underline'
+      className='block bg-transparent text-[#486284] border-l-2 border-[#486284] font-normal  py-2 px-3 underline'
     >
       {text}
-    </button>
+    </Link>
   );
 }
 
 RegisterButton.propTypes = {
   onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired
 };
 
 export default RegisterButton;

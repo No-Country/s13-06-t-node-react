@@ -4,7 +4,6 @@ import { useState } from 'react';
 import TextInput from '../../components/Register/TextInput';
 import MailInput from '../../components/Register/MailInput';
 import PasswordInput from '../../components/Register/PasswordInput';
-import NumberInput from '../../components/Register/NumberInput';
 import { useRegister } from '../../hooks/useRegister';
 import ErrorAlert from '../../components/Register/ErrorAlert';
 import logo from '../../assets/Logo/logo-horizontal.svg';
@@ -17,7 +16,6 @@ const Register = () => {
     firstName: '',
     lastName: '',
     email: '',
-    documentType: '',
     dni: '',
     password: '',
     confirmPassword: '',
@@ -38,7 +36,7 @@ const Register = () => {
   }
 
   return (
-    <div className='flex flex-1 h-screen'>
+    <div className='flex flex-1 h-full'>
       <div className='relative hidden w-0 flex-1 lg:block'>
         <img
           className='absolute inset-0 h-full w-full object-cover'
@@ -46,13 +44,13 @@ const Register = () => {
           alt='Logo'
         />
       </div>
-      <div className='flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
+      <div className='flex flex-1 flex-col justify-center px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
         <div className='mx-auto w-full max-w-sm lg:w-96'>
           <div>
             <Link to='/'>
               <img className='h-10 w-auto' src={logo} alt='Logo' />
             </Link>
-            <h2 className='mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900 uppercase'>
+            <h2 className='mt-5 text-2xl font-bold leading-9 tracking-tight text-gray-900 uppercase'>
               REGISTRO DE USUARIO
             </h2>
             <p className='mt-2 text-sm leading-6 text-gray-500'>
@@ -66,7 +64,7 @@ const Register = () => {
             </p>
           </div>
 
-          <div className='mt-8'>
+          <div className='mt-5'>
             <div>
               {errorMessage && <ErrorAlert errorMessage={errorMessage} />}
               <form
@@ -100,16 +98,6 @@ const Register = () => {
                   name='email'
                   value={form.email}
                   onChange={(e) => handleChange(e)}
-                  required
-                />
-                <NumberInput
-                  id='dni'
-                  placeholder='N° DE DOCUMENTO'
-                  name='dni'
-                  value={form.dni}
-                  onChange={(e) => handleChange(e)}
-                  pattern='^\d{6,12}$'
-                  title='Incluya al menos 6 números y no más de 12.'
                   required
                 />
                 <div className='mt-12'>

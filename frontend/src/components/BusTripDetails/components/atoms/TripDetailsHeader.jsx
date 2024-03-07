@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function TripDetailsHeader({ title }) {
   return (
-    <h3 className='text-center mb-7 text-[#1A202C] font-extrabold text-xl mt-2'>
+    <h3 className='text-center mb-4 text-[#1A202C] font-extrabold text-xl mt-2'>
       {title}
     </h3>
   );
