@@ -1,6 +1,7 @@
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FaInstagramSquare } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import LogoHorizontal from '../../assets/Logo/logo-horizontal.svg';
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
       <div className='flex flex-col md:flex-row justify-between md:pb-8 pb-4 md:px-14'>
         <div className='border-b-2 md:hidden border-gray-200 pt-4 bg-white' />
         <div className='w-full md:w-1/4 flex md:flex-col md:items-start items-center justify-around md:bg-[#D3DCE7] bg-white py-8'>
-          <p className='font-semibold text-3xl md:pb-4'>Logo</p>
+          <img src={LogoHorizontal} alt='Logo' className='w-52' />
           <p className='text-sm md:inline hidden'>
             Eslogan ...Deja que tu viaje comience con nosotros
           </p>

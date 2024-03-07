@@ -10,17 +10,21 @@ export const NavigationLinks = () => {
   ];
 
   return (
-    <div className='flex flex-col md:flex-row gap-4 md:gap-6 items-center'>
+    <div className='flex flex-col md:flex-row gap-4 md:gap-6 items-center  md:w-auto w-40'>
       {links.map((link, index) =>
         link.label === 'Destinos' ? (
-          <Link key={index} to={link.url} className='font-semibold navbar-text'>
+          <Link
+            key={index}
+            to={link.url}
+            className='font-semibold underline navbar-text text-base md:text-lg'
+          >
             {link.label}
           </Link>
         ) : (
           <Link
             key={index}
             to={link.url}
-            className='text-[#566e8d] navbar-text'
+            className='md:text-[#566e8d] text-white navbar-text text-base md:text-lg'
           >
             {link.label}
           </Link>
@@ -28,7 +32,7 @@ export const NavigationLinks = () => {
       )}
       <Link
         to='/register'
-        className='hover:underline navbar-text text-[#566e8d]'
+        className='hover:underline navbar-text md:text-[#566e8d] text-white text-base md:text-lg'
       >
         Regístrame
       </Link>
