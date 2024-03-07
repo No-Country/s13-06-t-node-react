@@ -38,7 +38,9 @@ export default function SideBarAdmin() {
             <div className='flex items-center justify-between'>
               <div className='flex gap-2'>
                 <img className='w-[27px]' src={terminales} />
-                <p className='font-semibold text-lg'>Terminales</p>
+                <Link to='/admin'>
+                  <p className='font-semibold text-lg'>Terminales</p>
+                </Link>
               </div>
               <div>
                 <img className='w-4' src={arrow} />

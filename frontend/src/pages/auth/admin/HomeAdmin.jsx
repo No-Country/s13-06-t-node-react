@@ -1,4 +1,5 @@
 import DataTable from '../../../components/Admin/components/organisms/DataTable';
+import CitySelectionContainer from '../../../components/Admin/components/organisms/CitySelectionContainer';
 
 export default function HomeAdmin() {
   const nSeats = 60; // Obtener el número de Asientos 60 - 40
@@ -67,8 +68,21 @@ export default function HomeAdmin() {
     }
   ];
 
+  const cityStates = {
+    'Mar del Plata': false,
+    Necochea: false,
+    Miramar: false,
+    Córdoba: false,
+    Merlo: false,
+    Retiro: false
+  };
+
   return (
-    <div className='bg-white w-full h-full py-10 px-10'>
+    <div className='bg-white w-full h-full p-6'>
+      <CitySelectionContainer label='Origen' citiesObject={cityStates} />
+
+      <CitySelectionContainer label='Destino' citiesObject={cityStates} />
+
       <DataTable data={data} nSeats={nSeats} />
     </div>
   );
