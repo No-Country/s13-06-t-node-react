@@ -1,4 +1,9 @@
 const express = require('express');
+const {
+  validatePartialSchema,
+  validateSchema
+} = require('../middlewares/validateSchema');
+const { vehicleSchema } = require('../schemas/vehicleSchema');
 
 const {
   //   getVehicles,
@@ -21,16 +26,16 @@ const router = express.Router();
 router.get('/', getVehiclesAmenities);
 
 // GET vehicle and amenites by id
-router.get('/:id', getVehicleAmenityById);
+router.get('/id/:id', getVehicleAmenityById);
 
 // GET vehicle and amenites by plate
 router.get('/plate/:plate', getVehicleAmenityByPlate);
 
 // POST new vehicle and amenites
-router.post('/', createVehicleAmenity);
+router.post('/', validateSchema(vehicleSchema), createVehicleAmenity);
 
 // PUT vehicle and amenites
-router.put('/:id', updateVehicleAmenity);
+router.put('/:id', validatePartialSchema(vehicleSchema), updateVehicleAmenity);
 
 // DELETE vehicle and association
 router.delete('/:id', deleteVehicleAmenity);

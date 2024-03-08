@@ -1,4 +1,9 @@
 const express = require('express');
+const {
+  validatePartialSchema,
+  validateSchema
+} = require('../middlewares/validateSchema');
+const { amenitySchema } = require('../schemas/amenitySchema');
 
 const {
   getAmenities,
@@ -17,10 +22,10 @@ router.get('/', getAmenities);
 router.get('/id/:id', getAmenityById);
 
 /* POST amenity. */
-router.post('/', createAmenity);
+router.post('/', validateSchema(amenitySchema), createAmenity);
 
 /* PUT amenity by id */
-router.put('/:id', updateAmenity);
+router.put('/:id', validatePartialSchema(amenitySchema), updateAmenity);
 
 /* DELETE amenity by id */
 router.delete('/:id', deleteAmenity);
